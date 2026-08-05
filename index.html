@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keshet Presentations Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rainbow: linear-gradient(90deg,
+        #E4002B 0%, #F7941D 20%, #FFD100 40%,
+        #6CC24A 60%, #00A3E0 80%, #6F2DA8 100%
+      );
+      --c-red: #E4002B;
+      --c-ink-100: #0C0C0E;
+      --c-ink-90: #141418;
+      --c-ink-80: #1C1C22;
+      --c-ink-70: #26262E;
+      --text: #FFFFFF;
+      --text-muted: rgba(255, 255, 255, 0.70);
+      --font: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background: 
+        radial-gradient(ellipse at 10% 90%, rgba(228,0,43,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 10%, rgba(0,163,224,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(111,45,168,0.08) 0%, transparent 70%),
+        var(--c-ink-100);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Rainbow top stripe */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--rainbow);
+      z-index: 10;
+    }
+
+    header {
+      padding: 80px 24px 40px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .logo-text {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: var(--rainbow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .rainbow-line {
+      height: 3px;
+      width: 120px;
+      border-radius: 2px;
+      background: var(--rainbow);
+      margin: 32px auto 0;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .card-wrapper {
+      background: var(--rainbow);
+      padding: 2px;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-wrapper:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 163, 224, 0.15);
+    }
+
+    .card {
+      background: var(--c-ink-90);
+      border-radius: 14px;
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-content {
+      margin-bottom: 24px;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+
+    .card-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card-action:hover {
+      background: var(--rainbow);
+      border-color: transparent;
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(12, 12, 14, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    footer p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding-top: 60px;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <span class="logo-text">KESHET PRESENTATIONS</span>
+    </div>
+    <h1>Keshet Presentations Portal</h1>
+    <p class="subtitle">
+      Welcome to the corporate presentation portal. Here you can find, view, and share beautifully designed, fully branded presentations aligned with the Keshet design standard.
+    </p>
+    <div class="rainbow-line"></div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Our Presentations</h2>
+    
+    <div class="grid">
+      <!-- Card 1: Vibe Coding -->
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-tag">Software Development & AI</span>
+            <h3 class="card-title">Vibe Coding Guide</h3>
+            <p class="card-desc">
+              A comprehensive and practical guide to the revolutionary software development methodology: Vibe Coding. Learn how to lead tech projects using AI agents and smart code orchestration.
+            </p>
+          </div>
+          <a href="vibe-coding-guide.html" class="card-action">
+            View Presentation &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Token Economics -->
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-tag">AI Economics & Finance</span>
+            <h3 class="card-title">Token Economics Guide</h3>
+            <p class="card-desc">
+              Understand pricing models, cost management, prompt optimization, and caching strategies to maximize financial savings and efficiency when building with artificial intelligence.
+            </p>
+          </div>
+          <a href="token-economics-guide.html" class="card-action">
+            View Presentation &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Crafted with care by the Keshet Innovation Department &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
