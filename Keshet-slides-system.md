@@ -527,3 +527,90 @@ body { font-family: var(--font); direction: rtl; }
    - *Note for offline rendering*: For fully offline PDF exports, local font files (`.ttf` or `.woff2`) can be added to `assets/fonts/` and referenced via local `@font-face` rules.
 3. **Icon System**:
    - No external icon library is integrated. Bullets and step numbers are built using CSS shapes to keep the slides lightweight, high-performance, and self-contained.
+
+---
+
+## 12. Production Deck System — `template.html` (Authoritative)
+
+> Sections 1–11 above describe the brand *philosophy* (modes, colors, typography, RTL rules).
+> **This section describes the actual production system that ships in the repo.** Every
+> presentation in this project is built from **`template.html`** and speaks this exact visual
+> language. `token-economics-guide.html` is the reference implementation.
+
+### 12.1 How to start a new presentation
+1. **Copy `template.html`** → rename it (e.g. `my-new-guide.html`).
+2. Replace the example slides inside `<div id="deck">` with your own `.page` blocks.
+3. Keep the logo header (`.wm`), the nav bar, the `<script>`, and all CSS **unchanged**.
+4. Open in Chrome to preview, then push — GitHub Actions deploys it to the portal.
+
+Everything is a single self-contained HTML file (CSS + slides + JS inline). No build step.
+
+### 12.2 The canvas
+- Fixed **1920×1080** deck (`#deck`), automatically scaled to fit any viewport by JS
+  (`transform: scale(min(vw/1920, vh/1080))`). Design at 1920×1080 — never worry about responsiveness.
+- One slide is one `<div class="page ...">`. Only the `.active` page is visible; transitions
+  are handled by CSS.
+
+### 12.3 Brand token
+```css
+:root {
+  --ks: linear-gradient(135deg,#E4002B 0%,#FF6D00 15%,#FFD100 30%,#00A651 50%,#00B4D8 70%,#0057B8 85%,#7B2D8E 100%);
+  --font: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+}
+```
+`--ks` is the rainbow brand DNA. Surface it via `.spec` (rainbow **text**) or `.specbar`
+(rainbow **fill** for bars/number circles).
+
+### 12.4 Visual modes (put one on each `.page`)
+| Class | Mode | Use for |
+|-------|------|---------|
+| `.aurora` | Aurora Light | readable/informational slides (default) |
+| `.dark`   | Dark Glow | covers, section dividers, dramatic statements |
+
+On a `.dark` slide, add `.on-dark` to `.wm`, `.title`, `.sub`, and `.eyebrow`.
+
+### 12.5 Core building-block classes
+| Class | Purpose |
+|-------|---------|
+| `.wm` | Logo watermark header (top-left). Contains the `<img>` logo — keep on every slide. |
+| `.eyebrow` + `.dot` | Small pill label above the title (`.on-dark` variant for dark slides). |
+| `.title` | Main headline (`.on-dark` for dark). |
+| `.sub` | Supporting sentence under the title (`.on-dark` for dark). |
+| `.hd` | Wrapper that stacks eyebrow + title + sub with correct spacing. |
+| `.glass` | Frosted light card (for content on aurora slides). |
+| `.inkcard` | Dark navy card (for emphasis / stats). |
+| `.take` | Bottom takeaway strip; wrap the key phrase in `<span class="hi">…</span>` (yellow). |
+| `.spec` / `.specbar` | Rainbow text / rainbow fill. |
+| `.chip` | Small rounded label. `.tok` | Token-style pill. |
+| `.bignum` | Huge stat number (pair with `.spec`). `.numchip` | Numbered circle. |
+| `.barrow`/`.barlbl`/`.bartrack`/`.barfill` | Horizontal comparison bars. Fills: `.f-red .f-orange .f-blue .f-cyan .f-green .f-purple`. |
+| Layout utils | `.fx .col .ac .jc .jb .f1 .wrap .grid` and weights `.fw5–.fw8`. |
+
+### 12.6 The official logo
+- File: **`assets/keshet-logo.png`** — the official high-res transparent rainbow squircle
+  with white "קשת" (sourced from the Keshet brand skill kit).
+- Standard header snippet (identical on every slide):
+```html
+<div class="wm">
+  <img src="assets/keshet-logo.png" alt="Keshet Logo"
+       style="height:56px;width:auto;vertical-align:middle;flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
+</div>
+```
+- **Do not** hand-code the logo as SVG polygons/gradients — always use this image so brand
+  fidelity is pixel-accurate.
+
+### 12.7 Built-in navigation (do not edit)
+- Floating frosted nav bar: prev/next buttons, clickable dots, and a `current / total` counter —
+  all auto-generated from the number of `.page` elements.
+- **Keyboard (RTL-aware):** `←`/`Space` = next, `→` = previous.
+- **Touch:** swipe left = next, swipe right = previous.
+
+### 12.8 Print to PDF
+- `@media print` turns every `.page` into one 1920×1080 landscape page and hides the nav bar.
+- Chrome → `Ctrl/Cmd + P` → Save as PDF → Layout: **Landscape** → Margins: **None** →
+  enable **Background graphics**.
+
+### 12.9 Content guardrails (unchanged from the brand spec)
+- Max ~5 bullets / ~3 stats per slide — split if it overflows.
+- Wrap every foreign term in `<span dir="ltr">Claude</span>`.
+- No emoji. Colors only from the palette above. Font only Heebo.
