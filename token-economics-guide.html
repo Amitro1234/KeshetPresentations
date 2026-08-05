@@ -191,9 +191,9 @@ html, body {
 .hd {display:flex;flex-direction:column;gap:20px}
 .take {border-radius:16px;padding:22px 34px;font-size:27px;font-weight:700;line-height:1.32;background:rgba(10,25,48,.94);color:#fff}
 .take .hi {color:#FFD100}
-.wm {position:absolute;top:52px;left:104px;display:flex;align-items:center;gap:14px;font-weight:900;font-size:25px;color:#0A1930}
+.wm {position:absolute;top:52px;left:104px;display:flex;align-items:center;z-index:100;}
 .wm.on-dark {color:#fff}
-.wm .bar {width:1px;height:22px;background:currentColor;opacity:.3}
+
 .mako {font-weight:700;font-size:21px;letter-spacing:.02em;opacity:.9}
 .barrow {display:flex;align-items:center;gap:22px}
 .barlbl {width:250px;font-weight:800;font-size:26px;color:#0A1930;text-align:right;line-height:1.15}
@@ -249,7 +249,7 @@ html, body {
 <!-- 01 שער -->
 <div class="page aurora fx col ac jc">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -263,11 +263,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="fx col ac" style="gap:34px;text-align:center;max-width:1400px;">
     <div class="eyebrow"><span class="dot"></span>מדריך פנימי · לקראת המעבר ל-<span dir="ltr">Claude Enterprise</span></div>
@@ -280,7 +277,7 @@ html, body {
 <!-- 02 מעבר ל-Enterprise -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -294,11 +291,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>הקשר</div>
@@ -331,7 +325,7 @@ html, body {
 <!-- 03 מה זה טוקן -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -345,11 +339,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>הבסיס</div>
@@ -383,7 +374,7 @@ html, body {
 <!-- 04 עברית עולה -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -397,11 +388,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>מס השפה</div>
@@ -439,7 +427,7 @@ html, body {
 <!-- 05 פלט יקר -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -453,11 +441,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>מס הפלט</div>
@@ -488,7 +473,7 @@ html, body {
 <!-- 06 מודל לפי משימה -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -502,11 +487,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>בחירת מודל</div>
@@ -527,7 +509,7 @@ html, body {
 <!-- 07 לזכור במקום לשלם -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -541,11 +523,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>טיפ חיסכון · הכי משתלם</div>
@@ -571,7 +550,7 @@ html, body {
 <!-- 08 עבודה עם מסמכים -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -585,11 +564,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>מסמכים · מבוא</div>
@@ -618,7 +594,7 @@ html, body {
 <!-- 09 עלות לפי משימה -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -632,11 +608,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>מסמכים</div>
@@ -669,7 +642,7 @@ html, body {
 <!-- 10 מסמכים סרוקים -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -683,11 +656,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>תמונות וסריקות</div>
@@ -714,7 +684,7 @@ html, body {
 <!-- 11 כלים וייעוץ -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -728,11 +698,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>כלים וגישות</div>
@@ -760,7 +727,7 @@ html, body {
 <!-- 12 שיחות ארוכות -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -774,11 +741,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>שיחות</div>
@@ -805,7 +769,7 @@ html, body {
 <!-- 13 הוראות נסתרות -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -819,11 +783,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>הנסתר</div>
@@ -846,7 +807,7 @@ html, body {
 <!-- 14 המודל הנכון -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -860,11 +821,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>אוטומציה חכמה</div>
@@ -896,7 +854,7 @@ html, body {
 <!-- 15 לאן הולך הכסף -->
 <div class="page aurora">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -910,11 +868,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div class="hd">
     <div class="eyebrow"><span class="dot"></span>מדידה</div>
@@ -932,7 +887,7 @@ html, body {
 <!-- 16 10 הנחיות -->
 <div class="page aurora fx col ac jc">
   <div class="wm">
-    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" style="vertical-align: middle; flex-shrink: 0;">
+    <svg class="keshet-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="56" height="56" style="vertical-align: middle; flex-shrink: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));">
       <defs>
         <clipPath id="keshet-clip">
           <path d="M 25,12 C 55,3 75,3 105,12 C 120,32 120,52 117,82 C 112,107 87,120 62,117 C 37,114 17,102 7,82 C -3,52 0,32 25,12 Z" />
@@ -946,11 +901,8 @@ html, body {
         <polygon points="10,110 95,-20 130,40" fill="#00A3E0" />
         <polygon points="10,110 130,40 130,130 10,130" fill="#6F2DA8" />
       </g>
-      <text x="62" y="72" font-family="'Heebo', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle">קשת</text>
+      <text x="62" y="74" font-family="'Heebo', sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5px">קשת</text>
     </svg>
-    <span class="spec">12</span>
-    <span class="bar"></span>
-    <span class="mako" dir="ltr">mako</span>
   </div>
   <div style="width:100%;">
     <div class="fx col ac" style="gap:12px;text-align:center;margin-bottom:24px;">
