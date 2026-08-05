@@ -550,6 +550,12 @@ Everything is a single self-contained HTML file (CSS + slides + JS inline). No b
   (`transform: scale(min(vw/1920, vh/1080))`). Design at 1920×1080 — never worry about responsiveness.
 - One slide is one `<div class="page ...">`. Only the `.active` page is visible; transitions
   are handled by CSS.
+- **Aspect ratio / letterbox:** because the 16:9 canvas is scaled without distortion, any
+  viewport that isn't exactly 16:9 shows a surrounding frame. That frame is intentionally
+  branded Keshet navy (`radial-gradient(circle at 50% -10%, #16305a, #0A1930)`) rather than
+  black. On a true 16:9 screen/TV **in fullscreen** the deck fills the screen with no frame,
+  and it stays razor-sharp at 4K (vector-rendered, not upscaled). **Always present in
+  fullscreen** (the nav-bar Fullscreen button, or the `F` key).
 
 ### 12.3 Brand token
 ```css
@@ -600,10 +606,12 @@ On a `.dark` slide, add `.on-dark` to `.wm`, `.title`, `.sub`, and `.eyebrow`.
   fidelity is pixel-accurate.
 
 ### 12.7 Built-in navigation (do not edit)
-- Floating frosted nav bar: prev/next buttons, clickable dots, and a `current / total` counter —
-  all auto-generated from the number of `.page` elements.
-- **Keyboard (RTL-aware):** `←`/`Space` = next, `→` = previous.
+- Floating frosted nav bar: prev/next buttons, clickable dots, a `current / total` counter,
+  and a Fullscreen toggle — all auto-generated / wired from the number of `.page` elements.
+- **Keyboard (RTL-aware):** `←`/`Space` = next, `→` = previous, `F` = toggle fullscreen.
 - **Touch:** swipe left = next, swipe right = previous.
+- **Fullscreen button:** enters/exits fullscreen (icon swaps between expand/compress). Use it
+  when projecting so a 16:9 screen has no letterbox frame.
 
 ### 12.8 Print to PDF
 - `@media print` turns every `.page` into one 1920×1080 landscape page and hides the nav bar.

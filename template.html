@@ -46,7 +46,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #0C0C0E;
+  /* Branded letterbox: on non-16:9 screens the surrounding frame is Keshet navy, not black */
+  background: radial-gradient(circle at 50% -10%, #16305a 0%, #0A1930 55%);
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -355,6 +356,7 @@ html, body {
     <div class="nav-dots" id="nav-dots"></div>
     <div class="nav-counter" id="nav-counter">1 / 1</div>
     <button class="nav-btn" id="next-btn" aria-label="Next slide">&rarr;</button>
+    <button class="nav-btn" id="fs-btn" aria-label="Toggle fullscreen" title="Fullscreen (F)"></button>
   </div>
 
   <script>
@@ -407,10 +409,27 @@ html, body {
       prevBtn.addEventListener('click', prevSlide);
       nextBtn.addEventListener('click', nextSlide);
 
-      // Keyboard (RTL friendly: Left arrow = next, Right arrow = prev)
+      // Fullscreen toggle — removes browser chrome so a 16:9 screen/TV has zero bars
+      const fsBtn = document.getElementById('fs-btn');
+      const ICON_EXPAND = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>';
+      const ICON_COMPRESS = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>';
+      function updateFsIcon() { fsBtn.innerHTML = document.fullscreenElement ? ICON_COMPRESS : ICON_EXPAND; }
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+      fsBtn.addEventListener('click', toggleFullscreen);
+      document.addEventListener('fullscreenchange', updateFsIcon);
+      updateFsIcon();
+
+      // Keyboard (RTL friendly: Left arrow = next, Right arrow = prev; F = fullscreen)
       document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft' || e.key === ' ') { e.preventDefault(); nextSlide(); }
         else if (e.key === 'ArrowRight') { e.preventDefault(); prevSlide(); }
+        else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
       });
 
       // Swipe gestures (RTL friendly)
