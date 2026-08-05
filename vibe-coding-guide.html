@@ -298,12 +298,10 @@ html, body {
     <h1 class="title">לפני שמתחילים — התמונה הגדולה</h1>
     <p class="sub">כל אפליקציה בנויה משלושה אזורים. הנה ההקבלה הוויזואלית שתוביל אותנו בכל המדריך.</p>
   </div>
-  <div class="f1 fx ac jc" style="margin-top:34px;">
-    <div class="glass fx ac jc" style="width:100%;height:460px;padding:24px;border-radius:20px;">
-      <div style="background:rgba(10,25,48,.06);border-radius:20px;height:420px;width:100%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#0A1930;">
-        [תמונה: מסעדה שלמה עם שלושת האזורים]
-      </div>
-    </div>
+  <div style="display:flex;justify-content:center;margin-top:16px;">
+    <img src="assets/vibe/restaurant-full.png"
+         alt="מסעדה — האנלוגיה המלאה"
+         style="height:420px;width:auto;max-width:1600px;object-fit:contain;border-radius:20px;display:block;">
   </div>
 </div>
 
@@ -319,19 +317,25 @@ html, body {
   </div>
   <div class="grid f1 ac" style="grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:34px;">
     <div class="glass fx col" style="padding:40px;border-top:6px solid #00B4D8;">
-      <div class="fx ac jc" style="height:140px;margin-bottom:12px;"><img src="assets/vibe/dining.png" alt="חדר אוכל" style="height:140px;width:auto;object-fit:contain;"></div>
+      <img src="assets/vibe/restaurant-dining.png"
+           alt="חדר אוכל"
+           style="width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:14px;">
       <div class="chip" style="background:rgba(0,180,216,.12);color:#00B4D8;margin-bottom:12px;align-self:flex-start;"><span dir="ltr">Frontend</span></div>
       <div class="ink-t fw8" style="font-size:32px;margin-bottom:10px;">חדר האוכל</div>
       <div class="muted fw6" style="font-size:22px;line-height:1.5;">מה שהלקוח רואה ונוגע בו – החוויה והממשק.</div>
     </div>
     <div class="glass fx col" style="padding:40px;border-top:6px solid #FF6D00;">
-      <div class="fx ac jc" style="height:140px;margin-bottom:12px;"><img src="assets/vibe/kitchen.png" alt="המטבח" style="height:140px;width:auto;object-fit:contain;"></div>
+      <img src="assets/vibe/restaurant-kitchen.png"
+           alt="מטבח"
+           style="width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:14px;">
       <div class="chip" style="background:rgba(255,109,0,.12);color:#FF6D00;margin-bottom:12px;align-self:flex-start;"><span dir="ltr">Backend</span></div>
       <div class="ink-t fw8" style="font-size:32px;margin-bottom:10px;">המטבח והכספת</div>
       <div class="muted fw6" style="font-size:22px;line-height:1.5;">העיבוד, האבטחה ושמירת המידע מאחורי הקלעים.</div>
     </div>
     <div class="glass fx col" style="padding:40px;border-top:6px solid #7B2D8E;">
-      <div class="fx ac jc" style="height:140px;margin-bottom:12px;"><img src="assets/vibe/waiter.png" alt="המלצר" style="height:140px;width:auto;object-fit:contain;"></div>
+      <img src="assets/vibe/restaurant-pos.png"
+           alt="מערכת הזמנות"
+           style="width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:14px;">
       <div class="chip" style="background:rgba(123,45,142,.12);color:#7B2D8E;margin-bottom:12px;align-self:flex-start;"><span dir="ltr">API</span></div>
       <div class="ink-t fw8" style="font-size:32px;margin-bottom:10px;">המלצר</div>
       <div class="muted fw6" style="font-size:22px;line-height:1.5;">מעביר בקשות בין האזורים ואל מסעדות אחרות.</div>
@@ -522,7 +526,7 @@ html, body {
       <div class="chip" style="background:rgba(228,0,43,.12);color:#E4002B;margin-bottom:16px;">הבעיה בעבר</div>
       <div class="ink-t fw8" style="font-size:24px;line-height:1.4;">כדי לחבר בינה מלאכותית למערכת תקציב או מייל, היה צורך לכתוב קוד "מתורגמן" נפרד ומסובך לכל תוכנה.</div>
     </div>
-    <div class="inkcard" style="padding:36px;background:linear-gradient(135deg,#7B2D8E,#0057B8);">
+    <div class="inkcard" style="padding:36px;">
       <div class="chip" style="background:rgba(255,255,255,.16);color:#fff;margin-bottom:16px;">הפתרון: <span dir="ltr">MCP</span></div>
       <div class="white fw8" style="font-size:24px;line-height:1.4;">שקע אוניברסלי. ה-<span dir="ltr">IT</span> מגדיר פעם אחת, אתם מבקשים מ-<span dir="ltr">Claude</span> למשוך נתונים – והוא מתחבר ישירות.</div>
     </div>
@@ -617,27 +621,27 @@ html, body {
     <p class="sub">לא חייבים לדעת לכתוב קוד — אבל חייבים להכיר את השפה כדי לתקשר עם <span dir="ltr">Claude</span> ועם ה-<span dir="ltr">IT</span>.</p>
   </div>
   <div class="grid f1 ac" style="grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;">
-    <div class="glass" style="padding:28px 34px;">
+    <div class="glass" style="padding:28px 34px;border-top:5px solid #00B4D8;">
       <div class="ink-t fw8" style="font-size:26px;margin-bottom:10px;"><span dir="ltr">Git &amp; Repository</span></div>
       <div class="muted fw6" style="font-size:21px;line-height:1.5;">ה'ספריה' של הפרויקט — כל שינוי בקוד נשמר בהיסטוריה. ה-Repo הוא התיקיה המרכזית שמכילה הכל.</div>
     </div>
-    <div class="glass" style="padding:28px 34px;">
+    <div class="glass" style="padding:28px 34px;border-top:5px solid #00A651;">
       <div class="ink-t fw8" style="font-size:26px;margin-bottom:10px;"><span dir="ltr">Commit</span></div>
       <div class="muted fw6" style="font-size:21px;line-height:1.5;">שמירת שינויים עם הודעה מתארת — כמו Ctrl+S עם הערה בשוליים. מאפשר לחזור לכל גרסה קודמת.</div>
     </div>
-    <div class="glass" style="padding:28px 34px;">
+    <div class="glass" style="padding:28px 34px;border-top:5px solid #FF6D00;">
       <div class="ink-t fw8" style="font-size:26px;margin-bottom:10px;"><span dir="ltr">Terminal / Bash</span></div>
       <div class="muted fw6" style="font-size:21px;line-height:1.5;">חלון שמאפשר פקודות ישירות למחשב. <span dir="ltr">Claude</span> יכתוב לכם את הפקודות — אתם רק מדביקים ומריצים.</div>
     </div>
-    <div class="glass" style="padding:28px 34px;">
+    <div class="glass" style="padding:28px 34px;border-top:5px solid #0057B8;">
       <div class="ink-t fw8" style="font-size:26px;margin-bottom:10px;"><span dir="ltr">Stack</span></div>
       <div class="muted fw6" style="font-size:21px;line-height:1.5;">שכבות הטכנולוגיה של הפרויקט — שפה, מסגרת עבודה, בסיס נתונים. <span dir="ltr">Claude</span> יבחר עבורכם.</div>
     </div>
-    <div class="glass" style="padding:28px 34px;">
+    <div class="glass" style="padding:28px 34px;border-top:5px solid #E4002B;">
       <div class="ink-t fw8" style="font-size:26px;margin-bottom:10px;"><span dir="ltr">API Key &amp; .env file</span></div>
       <div class="muted fw6" style="font-size:21px;line-height:1.5;">המפתח לשירות חיצוני. לעולם לא מכניסים לקוד — שומרים בקובץ .env שנשאר פרטי.</div>
     </div>
-    <div class="glass" style="padding:28px 34px;">
+    <div class="glass" style="padding:28px 34px;border-top:5px solid #7B2D8E;">
       <div class="ink-t fw8" style="font-size:26px;margin-bottom:10px;"><span dir="ltr">Cache</span></div>
       <div class="muted fw6" style="font-size:21px;line-height:1.5;">שמירה זמנית של נתונים לגישה מהירה. יכול להיות מקומי, ברשת, או בענן.</div>
     </div>
@@ -657,7 +661,7 @@ html, body {
   </div>
   <div class="grid f1 ac" style="grid-template-columns:1fr 1fr;gap:28px;margin-top:28px;">
     <div class="glass fx col" style="background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:36px 32px;">
-      <div class="white fw8" style="font-size:28px;margin-bottom:14px;">הגדירו כוכב צפון ברור</div>
+      <div class="white fw8" style="font-size:28px;margin-bottom:14px;">הגדירו יעד ברור מהיסוד</div>
       <div class="white-2 fw6" style="font-size:22px;line-height:1.55;">יעד מדיד, הבנת הארכיטקטורה ורכיבי המערכת — כולל דשבורד עלויות. הגדרה ברורה = פיתוח מהיר ומדויק.</div>
     </div>
     <div class="glass fx col" style="background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:36px 32px;">
@@ -724,7 +728,7 @@ html, body {
         </div>
       </div>
     </div>
-    <div class="inkcard fx col" style="padding:36px;gap:20px;background:linear-gradient(160deg,#0C0C0E,#1a1830);">
+    <div class="inkcard fx col" style="padding:36px;gap:20px;">
       <div class="white fw8" style="font-size:28px;">גלגל הדיבאגינג הפסיכולוגי</div>
       <div class="white-2 fw6" style="font-size:20px;color:#FFD100;">אל תנסו להבין את השגיאה; תנו ל-<span dir="ltr">AI</span> להבין אותה.</div>
       <div class="fx col" style="gap:14px;">
@@ -747,7 +751,7 @@ html, body {
     <div class="eyebrow on-dark"><span class="dot"></span>15 · סיכום</div>
     <h1 class="title on-dark" style="font-size:80px;">הכוח לפתח נמצא עכשיו בידיים שלכם</h1>
   </div>
-  <div class="grid f1 ac" style="grid-template-columns:1fr 1fr 1fr;gap:32px;">
+  <div class="grid f1" style="grid-template-columns:1fr 1fr 1fr;gap:32px;align-items:stretch;">
     <div class="glass fx col" style="padding:40px;background:rgba(255,255,255,.06);border-top:6px solid #00A651;">
       <div class="chip" style="background:rgba(0,166,81,.2);color:#fff;margin-bottom:20px;align-self:flex-start;">הבעלות עוברת אליכם</div>
       <div class="white-2 fw6" style="font-size:23px;line-height:1.6;">ארגונים שמצליחים להעביר את הפיתוח לעובדי הקצה זוכים במערכות המדויקות ביותר.</div>

@@ -103,15 +103,50 @@ Each deck includes a `@media print` block that turns every slide into a single 1
 ```text
 KeshetPresentations/
 ├── .github/workflows/
-│   └── deploy.yml           # CI/CD workflow for automated deployment to GitHub Pages
-├── assets/                  # Brand assets, logos, and design references
-├── index.html               # Main presentation portal landing page (corporate homepage)
-├── template.html            # ⭐ Generic starter — copy this to begin any new presentation
-├── Keshet-slides-system.md  # Unified Keshet Slides Design System specification
-├── README.md                # This file (project documentation and guides)
-├── token-economics-guide.html # Token Economics presentation (reference deck, Hebrew content)
-└── vibe-coding-guide.html   # Vibe Coding presentation (Hebrew content)
+│   └── deploy.yml                        # CI/CD workflow for automated deployment to GitHub Pages
+├── assets/                               # Brand assets, logos, and design references
+├── skills/
+│   └── keshet-presentation/
+│       └── SKILL.md                      # ⭐ Claude Cowork skill — install to create presentations with AI
+├── index.html                            # Main presentation portal landing page (corporate homepage)
+├── template.html                         # ⭐ Generic starter — copy this to begin any new presentation
+├── Keshet-slides-system.md               # Unified Keshet Slides Design System specification
+├── README.md                             # This file (project documentation and guides)
+├── token-economics-guide.html            # Token Economics presentation (reference deck, Hebrew content)
+└── vibe-coding-guide.html                # Vibe Coding guide (AI-driven development, Hebrew content)
 ```
+
+---
+
+## 🤖 Creating Presentations with Claude (Cowork)
+
+The repo includes a **Claude Cowork skill** that lets any team member create a fully branded Keshet presentation directly from a document or brief — no Cursor, no code required.
+
+### How it works
+
+1. Open **Claude Desktop** in **Cowork mode**.
+2. Share your document (PDF, Word file, text notes, or just paste a topic brief).
+3. Type: *"צור מצגת קשת מהמסמך הזה"* (or in English: *"Create a Keshet presentation from this document"*).
+4. Claude reads the SKILL.md, applies the full design system, and saves a ready-to-open HTML file to this folder.
+
+No Cursor needed. The skill works entirely within Claude's Cowork chat.
+
+### Installing the skill
+
+The skill file is at `skills/keshet-presentation/SKILL.md`. To install it in your own Claude Cowork session:
+
+1. Open Claude Desktop → Cowork mode.
+2. Go to **Settings → Skills → Install from file**.
+3. Select `skills/keshet-presentation/SKILL.md`.
+
+Once installed, Claude will automatically use it whenever you ask to create a Keshet presentation.
+
+### What the skill gives Claude
+
+- The full Keshet CSS design system (1920×1080 canvas, aurora/dark modes, all tokens)
+- All slide type templates (cover, two-column, stats, steps, closing grid)
+- Content rules: RTL Hebrew, foreign terms in `<span dir="ltr">`, max bullets per slide, no emoji
+- An output checklist Claude runs before saving the file
 
 ---
 
