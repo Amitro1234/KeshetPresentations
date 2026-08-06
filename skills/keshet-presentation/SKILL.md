@@ -30,6 +30,7 @@ Map each piece of content to one of the 5 slide types below. A typical deck is 8
 | Chapter / section break | Section divider (Dark, centered) |
 | Explanation / bullets | Content slide (Aurora, .hd + bullets) |
 | Comparison / two topics | Two-column (Aurora, `.glass` + `.inkcard`) |
+| Data table / detailed comparison | Clean Bordered (`.clean-bordered`, rainbow wrapper) |
 | Numbers / stats | Stat slide (Aurora, `.glass` bars + `.inkcard` bignum) |
 | Process / steps | Steps (Aurora, numbered `.numchip`) |
 | Strong statement | Statement (Dark, centered, `.spec` highlight) |
@@ -43,7 +44,7 @@ Rule: max ~5 bullets, ~3 stats, ~5 steps per slide. Split if it overflows.
 
 ### File structure
 
-Single self-contained HTML file. Save it to `C:\Users\amit.rosen\KeshetPresentations\` with a descriptive kebab-case name (e.g. `ai-strategy-2026.html`).
+Single self-contained HTML file. Save it to the current working directory (the KeshetPresentations repo root) with a descriptive kebab-case name (e.g. `ai-strategy-2026.html`). The Write tool resolves the path automatically — use the filename only, no absolute path prefix.
 
 ### Required HTML shell
 
@@ -52,6 +53,8 @@ Single self-contained HTML file. Save it to `C:\Users\amit.rosen\KeshetPresentat
 <html dir="rtl" lang="he">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!-- שם המצגת — קשת --></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -99,6 +102,9 @@ html, body { margin: 0; padding: 0; background: radial-gradient(circle at 50% -1
 .nav-counter { font-size: 16px; font-weight: 700; color: #0A1930; min-width: 60px; text-align: center; }
 .aurora { background: radial-gradient(1200px 820px at 10% 6%,rgba(228,0,43,.14),transparent 58%), radial-gradient(1150px 900px at 92% 10%,rgba(255,209,0,.20),transparent 58%), radial-gradient(1250px 950px at 84% 94%,rgba(0,180,216,.20),transparent 60%), radial-gradient(1150px 900px at 12% 96%,rgba(123,45,142,.15),transparent 60%), radial-gradient(900px 720px at 50% 52%,rgba(0,166,81,.10),transparent 64%), linear-gradient(160deg,#FBFAF8,#F2EFE9); }
 .dark { background: radial-gradient(1200px 900px at 82% 10%,rgba(0,180,216,.30),transparent 55%), radial-gradient(1100px 900px at 12% 92%,rgba(123,45,142,.30),transparent 58%), radial-gradient(1000px 800px at 50% 50%,rgba(0,87,184,.18),transparent 60%), linear-gradient(150deg,#0A1930,#0f2340); }
+.clean-bordered { background: #FAFAF8; }
+/* Usage: wrap .page.clean-bordered inside a .rainbow-border div */
+.rainbow-border { background: var(--ks); padding: 3px; border-radius: 24px; overflow: hidden; }
 .glass { background: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.78); border-radius: 20px; box-shadow: 0 16px 46px rgba(10,25,48,.10); }
 .inkcard { background: linear-gradient(150deg,#0A1930,#13294c); color: #fff; border-radius: 20px; box-shadow: 0 18px 48px rgba(10,25,48,.30); }
 .spec { background: var(--ks); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -389,6 +395,29 @@ Max 5 bullets. Add a `.take` strip when there's a clear takeaway.
 
 ---
 
+### Clean Bordered slide (for comparisons, tables, step-by-step)
+
+```html
+<!-- Outer rainbow border wrapper — required for this mode -->
+<div class="rainbow-border" style="position:absolute;top:0;left:0;width:1920px;height:1080px;">
+  <div class="page clean-bordered">
+    <div class="wm"><img src="assets/keshet-logo.png" alt="Keshet Logo" style="height:56px;width:auto;vertical-align:middle;flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.15));"></div>
+    <div class="hd">
+      <div class="eyebrow"><span class="dot"></span>השוואה / נתונים</div>
+      <h1 class="title">כותרת השקופית</h1>
+      <p class="sub">הסבר קצר.</p>
+    </div>
+    <div class="glass f1 fx col" style="padding:48px 56px;gap:22px;margin-top:34px;justify-content:center;">
+      <!-- content here -->
+    </div>
+  </div>
+</div>
+```
+
+Note: The `.rainbow-border` wrapper replaces the `.page` positioning — the inner `.page` uses `position:relative` (not absolute) when nested this way, and the outer wrapper is `position:absolute`.
+
+---
+
 ## Section 7 — Content rules (non-negotiable)
 
 1. **RTL always**: `<html dir="rtl" lang="he">`. All Hebrew text right-aligned.
@@ -406,6 +435,8 @@ Max 5 bullets. Add a `.take` strip when there's a clear takeaway.
 
 Before saving the file, verify:
 - [ ] `<html dir="rtl" lang="he">`
+- [ ] `<meta name="viewport" content="width=device-width, initial-scale=1.0">` present
+- [ ] `<title>` tag set to the presentation's name
 - [ ] Heebo loaded from Google Fonts
 - [ ] Full CSS block from Section 4 is present
 - [ ] Nav bar + script from Section 5 is present
@@ -414,8 +445,8 @@ Before saving the file, verify:
 - [ ] Rainbow appears on every slide
 - [ ] No slide overflows (max 5 bullets / 3 stats / 5 steps)
 - [ ] `@media print` block included in CSS
-- [ ] File saved to `C:\Users\amit.rosen\KeshetPresentations\`
-- [ ] Present the file to the user with `mcp__cowork__present_files`
+- [ ] File saved to workspace root (`<name>.html`)
+- [ ] Present the file to the user — call `SendUserFile` with the saved file path so the user gets a clickable card in the chat.
 
 ---
 
@@ -424,7 +455,7 @@ Before saving the file, verify:
 1. **Read the source** — file, PDF, or pasted text. Use `Read` or `mcp__workspace__bash` to extract content.
 2. **Ask ONE clarifying question if needed** — e.g. audience, number of slides, specific emphasis. Skip if the brief is clear.
 3. **Build the HTML** — write the full file in one pass. Do not show the code in chat; write it directly to disk.
-4. **Save to workspace** — `C:\Users\amit.rosen\KeshetPresentations\<name>.html`
-5. **Present the file** — call `mcp__cowork__present_files` so the user gets a clickable card.
+4. **Save to workspace** — Write the file as `<name>.html` in the current working directory (repo root). Do not use an absolute path.
+5. **Present the file** — call `SendUserFile` with the saved file path so the user gets a clickable card in the chat.
 6. **One-line summary** — e.g. "נוצרה מצגת של 10 שקופיות — פתח ב-Chrome להצגה."
 
