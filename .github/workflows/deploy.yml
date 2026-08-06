@@ -1,47 +1,21 @@
-name: Deploy Keshet Presentations to GitHub Pages
+name: Validate Keshet Presentations
 
 on:
   push:
     branches:
       - main
       - master
+  pull_request:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Validate HTML
         run: npx --yes html-validate@9 "*.html"
-
-      - name: Prepare deploy artifact
-        run: |
-          mkdir -p _site
-          cp *.html _site/
-          cp -r assets _site/
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '_site'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
