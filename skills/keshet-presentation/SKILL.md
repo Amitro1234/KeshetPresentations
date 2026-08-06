@@ -58,7 +58,6 @@ Single self-contained HTML file. Save it to the current working directory (the K
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<title><!-- Presentation Title --></title>
 <style>
 /* === PASTE THE FULL CSS BLOCK FROM SECTION 4 HERE === */
 </style>
@@ -149,11 +148,11 @@ html, body { margin: 0; padding: 0; background: radial-gradient(circle at 50% -1
 
 ```html
   <div class="nav-bar">
-    <button class="nav-btn" id="prev-btn" aria-label="Previous slide">&larr;</button>
+    <button type="button" class="nav-btn" id="prev-btn" aria-label="Previous slide">&larr;</button>
     <div class="nav-dots" id="nav-dots"></div>
     <div class="nav-counter" id="nav-counter">1 / 1</div>
-    <button class="nav-btn" id="next-btn" aria-label="Next slide">&rarr;</button>
-    <button class="nav-btn" id="fs-btn" aria-label="Toggle fullscreen" title="Fullscreen (F)"></button>
+    <button type="button" class="nav-btn" id="next-btn" aria-label="Next slide">&rarr;</button>
+    <button type="button" class="nav-btn" id="fs-btn" aria-label="Toggle fullscreen" title="Fullscreen (F)"></button>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {

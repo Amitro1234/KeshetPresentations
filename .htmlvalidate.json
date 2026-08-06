@@ -10,6 +10,8 @@
     "wcag/h30": "off",
     "wcag/h37": "warn",
     "no-redundant-role": "off",
-    "heading-level": "off"
+    "heading-level": "off",
+    "no-implicit-button-type": "warn",
+    "attribute-empty-style": "off"
   }
 }
