@@ -23,4 +23,4 @@
 - Responsive — test on both wide screens and mobile.
 
 ## How to use this
-When starting work on a new guide with Cursor/Gemini, attach this document and request: "Build the presentation following the attached presentation-guidelines document" — to maintain consistency across all corporate guides.
+When starting work on a new guide with an AI assistant, attach this document and request: "Build the presentation following the attached presentation-guidelines document" — to maintain consistency across all corporate guides.
