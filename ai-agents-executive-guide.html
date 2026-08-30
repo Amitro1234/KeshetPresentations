@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="he">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>מתשובות לפעולות: המהפכה של סוכני ה-AI | תדריך מנהלים לקשת</title>
+  <title>סוכני AI: משאלות לפעולות | תדריך מנהלים</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS & KESHET BRAND SYSTEM
+       1. DESIGN TOKENS & BRAND SYSTEM (KESHET)
        ========================================================================== */
     :root {
       --navy-950: #070F1E;
@@ -40,14 +40,16 @@
       --ks: linear-gradient(135deg, #E4002B 0%, #FF6D00 15%, #FFD100 30%, #00A651 50%, #00B4D8 70%, #0057B8 85%, #7B2D8E 100%);
       --ks-h: linear-gradient(90deg, #E4002B 0%, #FF6D00 15%, #FFD100 30%, #00A651 50%, #00B4D8 70%, #0057B8 85%, #7B2D8E 100%);
       
-      --card-radius: 16px;
+      --card-radius: 14px;
       --shadow-sm: 0 4px 12px rgba(10,25,48,0.06);
-      --shadow-md: 0 10px 25px rgba(10,25,48,0.09);
+      --shadow-md: 0 10px 25px rgba(10,25,48,0.08);
       --shadow-dark: 0 15px 35px rgba(0,0,0,0.45);
+      --font-main: 'Heebo', 'Rubik', system-ui, -apple-system, sans-serif;
+      --font-code: 'Inter', monospace;
     }
 
     /* ==========================================================================
-       2. RESET & 1920x1080 FIXED CANVAS ENGINE
+       2. RESET & 1920x1080 FIXED CANVAS ENGINE (RTL)
        ========================================================================== */
     * {
       box-sizing: border-box;
@@ -60,9 +62,10 @@
       height: 100%;
       overflow: hidden;
       background-color: var(--navy-900);
-      font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+      font-family: var(--font-main);
       color: var(--text-dark);
       direction: rtl;
+      text-align: right;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -86,7 +89,7 @@
       height: 1080px;
       overflow: hidden;
       display: none;
-      padding: 56px 80px 96px;
+      padding: 56px 80px 92px;
       flex-direction: column;
       justify-content: space-between;
     }
@@ -95,31 +98,23 @@
       display: flex;
     }
 
-    /* Visual Modes */
+    /* Themes */
     .page.dark-glow {
-      background: radial-gradient(circle at 85% 15%, rgba(0, 180, 216, 0.15) 0%, transparent 45%),
-                  radial-gradient(circle at 15% 85%, rgba(228, 0, 43, 0.12) 0%, transparent 45%),
+      background: radial-gradient(circle at 15% 15%, rgba(0, 180, 216, 0.15) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 85%, rgba(228, 0, 43, 0.12) 0%, transparent 45%),
                   radial-gradient(circle at 50% 50%, rgba(123, 45, 142, 0.08) 0%, transparent 60%),
                   var(--navy-900);
       color: var(--text-light);
     }
 
     .page.aurora-light {
-      background: radial-gradient(ellipse 900px 500px at 90% 10%, rgba(0, 180, 216, 0.08) 0%, transparent 70%),
-                  radial-gradient(ellipse 700px 400px at 10% 90%, rgba(228, 0, 43, 0.05) 0%, transparent 70%),
+      background: radial-gradient(ellipse 900px 500px at 10% 10%, rgba(0, 180, 216, 0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 700px 400px at 90% 90%, rgba(228, 0, 43, 0.05) 0%, transparent 70%),
                   #F4F7FB;
       color: var(--text-dark);
     }
 
-    .page.appendix-mode {
-      background: radial-gradient(circle at 80% 20%, rgba(123, 45, 142, 0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 80%, rgba(0, 180, 216, 0.08) 0%, transparent 50%),
-                  #F0F4F8;
-      color: var(--text-dark);
-      border-right: 6px solid var(--ks-purple);
-    }
-
-    /* Rainbow Accent Top Stripe */
+    /* Top Rainbow Accent Stripe */
     .page::before {
       content: '';
       position: absolute;
@@ -131,7 +126,7 @@
       z-index: 100;
     }
 
-    /* Official Watermark Logo */
+    /* Official Watermark Logo (Left side in RTL) */
     .wm {
       position: absolute;
       top: 48px;
@@ -142,7 +137,7 @@
     }
 
     .wm img {
-      height: 52px;
+      height: 50px;
       width: auto;
       filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
     }
@@ -151,44 +146,14 @@
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
     }
 
-    /* Section Identifier Badge */
-    .sec-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-right: 8px;
-    }
-
-    .sec-badge.main-deck {
-      background: rgba(0, 87, 184, 0.1);
-      color: var(--ks-blue);
-    }
-
-    .dark-glow .sec-badge.main-deck {
-      background: rgba(0, 180, 216, 0.2);
-      color: var(--ks-cyan);
-    }
-
-    .sec-badge.app-deck {
-      background: rgba(123, 45, 142, 0.15);
-      color: var(--ks-purple);
-    }
-
     /* Typography */
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
+      letter-spacing: 0.5px;
       color: var(--navy-500);
       margin-bottom: 6px;
     }
@@ -206,7 +171,7 @@
     }
 
     h1.title {
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 800;
       line-height: 1.18;
       letter-spacing: -0.5px;
@@ -226,24 +191,31 @@
     }
 
     .specbar {
-      width: 68px;
+      width: 60px;
       height: 4px;
       border-radius: 2px;
       background: var(--ks);
       margin-top: 6px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .subtitle-text {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 400;
       color: var(--text-sub);
       max-width: 1400px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .dark-glow .subtitle-text {
       color: var(--text-light-sub);
+    }
+
+    .ltr-term {
+      direction: ltr;
+      display: inline-block;
+      font-family: var(--font-code);
+      font-weight: 600;
     }
 
     /* Takeaway Strip */
@@ -253,26 +225,25 @@
       gap: 16px;
       background: #FFFFFF;
       border-right: 5px solid var(--ks-blue);
+      border-left: none;
       border-radius: 12px;
       padding: 12px 24px;
       box-shadow: var(--shadow-sm);
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .dark-glow .take {
       background: rgba(15, 37, 72, 0.7);
       border-right: 5px solid var(--ks-cyan);
+      border-left: none;
       box-shadow: var(--shadow-dark);
       backdrop-filter: blur(8px);
     }
 
-    .appendix-mode .take {
-      border-right: 5px solid var(--ks-purple);
-    }
-
     .take-badge {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
+      letter-spacing: 0.5px;
       padding: 4px 12px;
       border-radius: 6px;
       background: rgba(0, 87, 184, 0.1);
@@ -285,14 +256,9 @@
       color: var(--ks-cyan);
     }
 
-    .appendix-mode .take-badge {
-      background: rgba(123, 45, 142, 0.15);
-      color: var(--ks-purple);
-    }
-
     .take-text {
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 15px;
+      font-weight: 600;
       line-height: 1.4;
       color: var(--text-dark);
     }
@@ -301,51 +267,51 @@
       color: var(--text-light);
     }
 
-    .take-text .hi {
-      font-weight: 700;
+    .take-text strong {
       color: var(--ks-blue);
     }
 
-    .dark-glow .take-text .hi {
+    .dark-glow .take-text strong {
       color: var(--ks-yellow);
     }
 
-    /* ==========================================================================
-       3. DIAGRAM & COMPONENT STYLING
-       ========================================================================== */
+    /* Content Area & Cards */
     .content-area {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      min-height: 570px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      min-height: 580px;
     }
 
     .glass-card {
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(226, 232, 240, 0.9);
       border-radius: var(--card-radius);
-      padding: 22px 26px;
+      padding: 22px 24px;
       box-shadow: var(--shadow-md);
+      text-align: right;
     }
 
     .dark-card {
       background: rgba(15, 37, 72, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--card-radius);
-      padding: 22px 26px;
+      padding: 22px 24px;
       box-shadow: var(--shadow-dark);
       backdrop-filter: blur(12px);
+      text-align: right;
     }
 
     .chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
+      letter-spacing: 0.4px;
       padding: 4px 12px;
       border-radius: 20px;
       background: rgba(0, 87, 184, 0.08);
@@ -357,9 +323,7 @@
       color: var(--white);
     }
 
-    /* ==========================================================================
-       4. NAVIGATION BAR WITH MAIN / APPENDIX SPLIT
-       ========================================================================== */
+    /* Navigation Bar */
     .nav-bar {
       position: fixed;
       bottom: 20px;
@@ -376,7 +340,7 @@
       padding: 6px 18px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
       z-index: 1000;
-      direction: ltr;
+      direction: ltr; /* Keeps nav buttons in standard physical order */
     }
 
     .nav-btn {
@@ -400,31 +364,11 @@
       transform: scale(1.08);
     }
 
-    .nav-section-tag {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
-    }
-
-    .nav-section-tag.tag-main {
-      background: rgba(0, 180, 216, 0.25);
-      color: var(--ks-cyan);
-    }
-
-    .nav-section-tag.tag-appendix {
-      background: rgba(123, 45, 142, 0.35);
-      color: #D8B4FE;
-    }
-
     .nav-counter {
       color: rgba(255, 255, 255, 0.95);
       font-size: 13px;
       font-weight: 700;
-      font-family: 'Heebo', sans-serif;
-      min-width: 60px;
+      min-width: 55px;
       text-align: center;
     }
 
@@ -447,21 +391,6 @@
       background: var(--ks-cyan);
       width: 18px;
       border-radius: 8px;
-    }
-
-    .nav-dot.dot-app {
-      background: rgba(123, 45, 142, 0.4);
-    }
-
-    .nav-dot.dot-app.active {
-      background: var(--ks-purple);
-    }
-
-    .dot-separator {
-      width: 2px;
-      height: 14px;
-      background: rgba(255, 255, 255, 0.2);
-      margin: 0 4px;
     }
 
     /* Print Rules */
@@ -501,47 +430,53 @@
   <div id="stage">
 
     <!-- ==========================================================================
-         MAIN SLIDE 01: COVER (Dark Glow + Editorial Hero Visual)
+         SLIDE 01: COVER (משאלות לפעולות | Hero Visual)
          ========================================================================== -->
     <div class="page dark-glow active" id="p1">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
       
-      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; flex: 1;">
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; flex: 1;">
         <div>
-          <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN BRIEFING</span> תדריך אסטרטגי להנהלה | Keshet 2026</div>
-          <h1 class="title" style="font-size: 52px; margin-bottom: 14px;">
-            מתשובות לפעולות:<br>
-            <span class="spec">המהפכה של סוכני ה-AI</span>
+          <div class="eyebrow"><span class="dot"></span> תדריך מנהלים | קשת 2026</div>
+          <h1 class="title" style="font-size: 50px; margin-bottom: 12px;">
+            משאלות לפעולות:<br>
+            <span class="spec">להבין את עולם ה-AI Agents בארגון</span>
           </h1>
           <div class="specbar"></div>
-          <p class="subtitle-text" style="font-size: 23px; max-width: 800px; margin-bottom: 24px; line-height: 1.45;">
-            ממודלי שפה המייצרים טקסט בלבד — למערכות אוטונומיות הפועלות ישירות במערכות הארגון, מקבלות החלטות ומבצעות משימות מקצה לקצה.
+          
+          <p class="subtitle-text" style="font-size: 22px; max-width: 800px; margin-bottom: 28px; line-height: 1.4;">
+            מעבר ממודלי שפה שמייצרים תשובות — למערכות אוטונומיות שמבצעות עבודה אמיתית.
           </p>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <div class="chip">🏛️ ארכיטקטורה עסקית</div>
-            <div class="chip">⚙️ הפעלת כלים ו-MCP</div>
-            <div class="chip">🛡️ ממשל ואבטחה</div>
-            <div class="chip">📈 מפת דרכים לקשת</div>
+
+          <!-- Visual Process Flow: מידע -> הבנה -> החלטה -> פעולה -->
+          <div style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 12px 20px; border-radius: 12px; width: fit-content;">
+            <span style="font-weight: 700; color: var(--ks-cyan);">מידע</span>
+            <span style="color: var(--slate-400);">←</span>
+            <span style="font-weight: 700; color: var(--ks-yellow);">הבנה</span>
+            <span style="color: var(--slate-400);">←</span>
+            <span style="font-weight: 700; color: var(--ks-orange);">החלטה</span>
+            <span style="color: var(--slate-400);">←</span>
+            <span style="font-weight: 800; color: var(--ks-green);">פעולה במערכות</span>
           </div>
         </div>
         
         <div style="display: flex; justify-content: center; align-items: center;">
-          <img src="assets/visuals/01-cover-agent-ecosystem.png" alt="Agent Ecosystem" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-dark); border: 1px solid rgba(255,255,255,0.15);">
+          <img src="assets/visuals/01-cover-agent-ecosystem.png" alt="אקוסיסטם סוכני AI בקשת" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-dark); border: 1px solid rgba(255,255,255,0.15);">
         </div>
       </div>
 
       <div class="take">
-        <div class="take-badge">שורת המחץ להנהלה</div>
+        <div class="take-badge">עוגן אסטרטגי</div>
         <div class="take-text">
-          סוכן אינו "עוד צ'אטבוט חכם", אלא <span class="hi">שכבת תוכנה קוגניטיבית</span> המתרגמת כוונה עסקית לפעולות עצמאיות ומבוקרות במערכות.
+          <strong>"אייג’נטים מעבירים את ה-AI ממענה על שאלות לביצוע עבודה אמיתית."</strong>
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         MAIN SLIDE 02: EVOLUTION OF CAPABILITIES (4-Stage Cumulative Progression)
+         SLIDE 02: המסר להנהלה (ארבעת עקרונות היסוד)
          ========================================================================== -->
     <div class="page aurora-light" id="p2">
       <div class="wm">
@@ -549,247 +484,44 @@
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 02</span> התפתחות היכולות בארגון | מודל 4 השלבים</div>
-        <h1 class="title">מצ'אטבוט גנרי לסוכן אוטונומי: <span class="spec">צבירת יכולות מצטברת</span></h1>
+        <div class="eyebrow"><span class="dot"></span> יישור קו אסטרטגי | עקרונות יסוד</div>
+        <h1 class="title">המסר להנהלה: <span class="spec">ארבעה עקרונות ברורים</span></h1>
         <div class="specbar"></div>
-        <p class="subtitle-text">
-          המעבר לסוכנים אינו קפיצה בינארית של "הכל או כלום", אלא צבירת שכבות יכולת — כאשר כל שכבה מגדילה את הערך העסקי ומחייבת ממשל הדוק יותר.
-        </p>
       </div>
 
       <div class="content-area">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-          <!-- Step 1 -->
-          <div class="glass-card" style="border-top: 4px solid #94A3B8; display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="font-size: 13px; font-weight: 800; color: #64748B;">שלב 1</span>
-              <span style="font-size: 20px;">💬</span>
-            </div>
-            <div style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">צ'אטבוט גנרי</div>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">מענה לשאלות וייצור טקסט על בסיס ידע כללי קפוא של המודל.</p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px dashed #CBD5E1;">
-              <span dir="ltr">LLM</span> + שיחה
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="glass-card" style="border-top: 4px solid var(--ks-cyan); display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="font-size: 13px; font-weight: 800; color: var(--ks-blue);">שלב 2</span>
-              <span style="font-size: 20px;">📚</span>
-            </div>
-            <div style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">סוכן ידע ארגוני</div>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">שליפת מידע מדויק ומאומת מתוך מסמכי קשת, מחקרים וארכיונים.</p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px dashed #CBD5E1;">
-              + ידע ארגוני (<span dir="ltr">RAG</span>)
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="glass-card" style="border-top: 4px solid var(--ks-green); display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="font-size: 13px; font-weight: 800; color: #007A3D;">שלב 3</span>
-              <span style="font-size: 20px;">⚡</span>
-            </div>
-            <div style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">סוכן מבוסס כלים</div>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">קריאה ל-APIs, שאילתות מסדי נתונים וביצוע פעולות במערכות.</p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px dashed #CBD5E1;">
-              + כלים ופעולות (<span dir="ltr">Tools</span>)
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="glass-card" style="border-top: 4px solid var(--ks-orange); display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-              <span style="font-size: 13px; font-weight: 800; color: #C2410C;">שלב 4</span>
-              <span style="font-size: 20px;">🤖</span>
-            </div>
-            <div style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">סוכן אוטונומי</div>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">קבלת יעדים עסקיים, ניהול לולאת הסקת מסקנות, טריגרים ומצב מתמיד.</p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px dashed #CBD5E1;">
-              + יעדים, זיכרון ו-State
-            </div>
-          </div>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding: 12px 24px; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--gray-border);">
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: var(--navy-800);">
-            <span>ערך עסקי ועצמאות ביצוע:</span>
-            <div style="height: 6px; width: 140px; border-radius: 3px; background: var(--ks-h);"></div>
-            <span style="color: var(--ks-orange);">גבוה במיוחד</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: var(--navy-800);">
-            <span>דרישות בקרה, ממשל והרשאות:</span>
-            <div style="height: 6px; width: 140px; border-radius: 3px; background: linear-gradient(90deg, #64748B, var(--ks-red));"></div>
-            <span style="color: var(--ks-red);">שערים מחמירים</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">תובנה ניהולית</div>
-        <div class="take-text">
-          סוכן אינו מוצר מדף בינארי — <span class="hi">היכולות מצטברות בשלבים</span>, ומחייבות התאמת רמת הממשל לדרגת האוטונומיה המוענקת לו.
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         MAIN SLIDE 03: HOW AN AGENT WORKS (Streamlined Cognitive Loop)
-         ========================================================================== -->
-    <div class="page aurora-light" id="p3">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 03</span> מנוע הפעולה | הלולאה הקוגניטיבית</div>
-        <h1 class="title">איך סוכן באמת עובד: <span class="spec">לולאה איטרטיבית של תכנון וביצוע</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          הסוכן אינו מייצר תשובה יחידה במכה אחת. הוא עובד באופן איטרטיבי: מבין את היעד, בוחר כלי, בוחן את התוצאה ומתקן את עצמו עד להשגת המטרה.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
           
-          <!-- Circular Loop SVG -->
-          <div class="glass-card" style="display: flex; justify-content: center; align-items: center; padding: 20px;">
-            <svg viewBox="0 0 460 320" style="width: 100%; height: 300px;">
-              <!-- Center Hub -->
-              <circle cx="230" cy="160" r="44" fill="#0A1930" stroke="#00B4D8" stroke-width="3"/>
-              <text x="230" y="155" fill="#FFFFFF" font-size="14" font-weight="800" text-anchor="middle" font-family="Heebo">יעד עסקי</text>
-              <text x="230" y="172" fill="#00B4D8" font-size="11" font-weight="700" text-anchor="middle" font-family="Heebo">GOAL</text>
-
-              <!-- Node 1: Reason -->
-              <rect x="160" y="15" width="140" height="44" rx="10" fill="#FFFFFF" stroke="#0057B8" stroke-width="2"/>
-              <text x="230" y="37" fill="#0A1930" font-size="13" font-weight="800" text-anchor="middle" font-family="Heebo">1. הבנה ותכנון</text>
-              <text x="230" y="50" fill="#64748B" font-size="10" text-anchor="middle" font-family="Heebo">Reason &amp; Plan</text>
-
-              <!-- Node 2: Act / Tool -->
-              <rect x="315" y="138" width="140" height="44" rx="10" fill="#FFFFFF" stroke="#00A651" stroke-width="2"/>
-              <text x="385" y="160" fill="#0A1930" font-size="13" font-weight="800" text-anchor="middle" font-family="Heebo">2. בחירת כלי ופעולה</text>
-              <text x="385" y="173" fill="#64748B" font-size="10" text-anchor="middle" font-family="Heebo">Tool Calling</text>
-
-              <!-- Node 3: Observe -->
-              <rect x="160" y="260" width="140" height="44" rx="10" fill="#FFFFFF" stroke="#FF6D00" stroke-width="2"/>
-              <text x="230" y="282" fill="#0A1930" font-size="13" font-weight="800" text-anchor="middle" font-family="Heebo">3. תצפית בתוצאה</text>
-              <text x="230" y="295" fill="#64748B" font-size="10" text-anchor="middle" font-family="Heebo">Observation</text>
-
-              <!-- Node 4: Evaluate -->
-              <rect x="5" y="138" width="140" height="44" rx="10" fill="#FFFFFF" stroke="#7B2D8E" stroke-width="2"/>
-              <text x="75" y="160" fill="#0A1930" font-size="13" font-weight="800" text-anchor="middle" font-family="Heebo">4. הערכה ותיקון</text>
-              <text x="75" y="173" fill="#64748B" font-size="10" text-anchor="middle" font-family="Heebo">Self-Repair</text>
-
-              <!-- Connecting Arcs -->
-              <path d="M 280 59 Q 360 80 360 138" fill="none" stroke="#0057B8" stroke-width="2" stroke-dasharray="4,4"/>
-              <path d="M 360 182 Q 340 250 280 265" fill="none" stroke="#00A651" stroke-width="2" stroke-dasharray="4,4"/>
-              <path d="M 180 265 Q 100 240 100 182" fill="none" stroke="#FF6D00" stroke-width="2" stroke-dasharray="4,4"/>
-              <path d="M 100 138 Q 120 75 180 59" fill="none" stroke="#7B2D8E" stroke-width="2" stroke-dasharray="4,4"/>
-            </svg>
+          <div class="glass-card" style="border-right: 5px solid var(--ks-blue); border-left: none;">
+            <div style="font-size: 28px; margin-bottom: 6px;">🤖</div>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">מעבר לצ’אטבוטים</h3>
+            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
+              האייג’נט מבין יעד, מפעיל כלים ומבצע משימות בפועל במערכות הארגון.
+            </p>
           </div>
 
-          <!-- Concrete Keshet Example Flow -->
-          <div class="glass-card" style="padding: 24px; border-right: 5px solid var(--ks-cyan);">
-            <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 14px;">
-              תרחיש עסקי: תחקיר רייטינג יומי
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
-              <div style="background: #F8FAFC; padding: 10px; border-radius: 8px;">
-                <strong>יעד:</strong> "נתח את חריגת הרייטינג בפריים של אתמול"
-              </div>
-              <div style="background: #F8FAFC; padding: 10px; border-radius: 8px;">
-                <strong>1. תכנון:</strong> הסוכן מזהה צורך בנתוני דקה-אחר-דקה.
-              </div>
-              <div style="background: #F8FAFC; padding: 10px; border-radius: 8px;">
-                <strong>2. פעולה:</strong> קריאה לכלי שאילתת מסד נתונים.
-              </div>
-              <div style="background: #F8FAFC; padding: 10px; border-radius: 8px;">
-                <strong>3. תצפית:</strong> זיהוי ירידה ב-21:40 במקביל למתחרים.
-              </div>
-              <div style="background: rgba(0, 180, 216, 0.1); padding: 10px; border-radius: 8px; font-weight: 700; color: var(--navy-900);">
-                <strong>4. מסקנה סופית:</strong> הפקת דו"ח מנומק עם המלצות.
-              </div>
-            </div>
+          <div class="glass-card" style="border-right: 5px solid var(--ks-green); border-left: none;">
+            <div style="font-size: 28px; margin-bottom: 6px;">⚙️</div>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">אוטומציה כשאפשר</h3>
+            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
+              תהליכים קבועים ודטרמיניסטיים עדיף לממש באוטומציה רגילה וזולה.
+            </p>
           </div>
 
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">הבדל מרכזי</div>
-        <div class="take-text">
-          הסוכן אינו מנחש מראש — <span class="hi">הוא בודק את המציאות באמצעות כלים</span> ומתקן את תוכנית הפעולה בזמן אמת על בסיס הנתונים שנאספו.
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         MAIN SLIDE 04: AUTOMATION + AGENT HYBRID (Unified Architecture)
-         ========================================================================== -->
-    <div class="page aurora-light" id="p4">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 04</span> ארכיטקטורה מעשית | הסינרגיה הארגונית</div>
-        <h1 class="title">השילוב המנצח: <span class="spec">אוטומציה + סוכן AI בארכיטקטורה היברידית</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          הארכיטקטורה הארגונית היעילה ביותר אינה "אוטומציה או סוכן", אלא צינור אוטומציה יציב הכולל סוכני AI בצמתי שיקול דעת והחלטה.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div class="glass-card" style="padding: 26px;">
-          
-          <!-- End-to-End Pipeline -->
-          <div style="display: grid; grid-template-columns: 0.9fr 1.2fr 1.3fr 1.1fr; gap: 16px; align-items: center;">
-            
-            <!-- Triggers (Entry points) -->
-            <div style="background: #F1F5F9; border-radius: 12px; padding: 16px; border: 1px solid #CBD5E1;">
-              <div style="font-size: 13px; font-weight: 800; color: #64748B; margin-bottom: 6px;">טריגר כניסה</div>
-              <div style="font-size: 13px; line-height: 1.6; font-weight: 600;">
-                👤 אדם יוזם<br>
-                ⚡ אירוע מערכת<br>
-                🕐 08:00 מתוזמן
-              </div>
-            </div>
-
-            <!-- Automation Layer -->
-            <div style="background: #F8FAFC; border-radius: 12px; padding: 16px; border: 2px solid #94A3B8; text-align: center;">
-              <div style="font-size: 13px; font-weight: 800; color: #64748B; margin-bottom: 4px;">צינור אוטומציה (80%)</div>
-              <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">איסוף נתונים</div>
-              <div style="font-size: 12px; color: var(--text-sub);">שאיבת מידע מ-Snowflake וארכיון השידור</div>
-            </div>
-
-            <!-- AI Agent Cognitive Layer -->
-            <div style="background: rgba(0, 180, 216, 0.08); border-radius: 12px; padding: 16px; border: 2px solid var(--ks-cyan); text-align: center;">
-              <div style="font-size: 13px; font-weight: 800; color: var(--ks-blue); margin-bottom: 4px;">צומת סוכן AI (20%)</div>
-              <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">ניתוח ותעדוף</div>
-              <div style="font-size: 12px; color: var(--text-sub);">זיהוי מגמות, השוואות וניסוח מסקנות מנומקות</div>
-            </div>
-
-            <!-- Action & Gate -->
-            <div style="background: rgba(255, 109, 0, 0.08); border-radius: 12px; padding: 16px; border: 2px solid var(--ks-orange); text-align: center;">
-              <div style="font-size: 13px; font-weight: 800; color: #C2410C; margin-bottom: 4px;">שער אישור וביצוע</div>
-              <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">הפצה ומעקב</div>
-              <div style="font-size: 12px; color: var(--text-sub);">שליחת אישור ב-Teams ועדכון מערכות היעד</div>
-            </div>
-
+          <div class="glass-card" style="border-right: 5px solid var(--ks-orange); border-left: none;">
+            <div style="font-size: 28px; margin-bottom: 6px;">🏛️</div>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">הערך הוא במערכת</h3>
+            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
+              היתרון נוצר מחיבור המודל למידע, לכלים, להרשאות ולתהליכי קשת.
+            </p>
           </div>
 
-          <!-- Comparison Strip -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; padding-top: 16px; border-top: 1px dashed #CBD5E1;">
-            <div style="background: #F1F5F9; padding: 10px 16px; border-radius: 8px; font-size: 13px;">
-              <strong>⚙️ אוטומציה:</strong> "הנתיב ידוע ומוגדר מראש" (מהיר, זול, אפס שיקול דעת).
-            </div>
-            <div style="background: rgba(0, 180, 216, 0.1); padding: 10px 16px; border-radius: 8px; font-size: 13px;">
-              <strong>🤖 סוכן AI:</strong> "היעד ידוע; הנתיב דינמי" (מתמודד עם עמימות ומידע לא מובנה).
-            </div>
+          <div class="glass-card" style="border-right: 5px solid var(--ks-purple); border-left: none;">
+            <div style="font-size: 28px; margin-bottom: 6px;">🎛️</div>
+            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">אוטונומיה היא בחירה</h3>
+            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
+              מעניקים רק את רמת העצמאות הנדרשת ומגדירים שער אישור אנושי.
+            </p>
           </div>
 
         </div>
@@ -798,67 +530,215 @@
       <div class="take">
         <div class="take-badge">עיקרון מוביל</div>
         <div class="take-text">
-          הארכיטקטורה הארגונית הנכונה היא <span class="hi">אוטומציה + סוכן</span>: צינור יציב המפעיל סוכן רק היכן שנדרש עיבוד שפה ושיקול דעת.
+          <strong>"המטרה: רמת האוטונומיה הנכונה לכל תהליך — לא אוטונומיה מקסימלית בכל מחיר."</strong>
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         MAIN SLIDE 05: ANATOMY OF AN ENTERPRISE AGENT (System View)
+         SLIDE 03: למה עכשיו? (לפני מול אחרי)
          ========================================================================== -->
-    <div class="page aurora-light" id="p5">
+    <div class="page aurora-light" id="p3">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 05</span> פירוק רכיבים | מבנה המערכת</div>
-        <h1 class="title">האנטומיה של סוכן ארגוני: <span class="spec">המערכת שסביב המודל</span></h1>
+        <div class="eyebrow"><span class="dot"></span> הקשר עסקי | לפני מול אחרי</div>
+        <h1 class="title">למה עכשיו? <span class="spec">פתרון צוואר הבקבוק הידני</span></h1>
         <div class="specbar"></div>
-        <p class="subtitle-text">
-          המודל (<span dir="ltr">LLM</span>) הוא רק רכיב אחד. הערך העסקי נוצר מהמערכת שנבנית סביבו: ידע, כלים, זיכרון והרשאות.
-        </p>
       </div>
 
       <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 20px; align-items: center;">
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center;">
           
-          <!-- Left Column -->
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="glass-card" style="border-right: 4px solid var(--ks-purple);">
-              <div style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">📜 הוראות וסקילים (<span dir="ltr">SOPs</span>)</div>
-              <div style="font-size: 12px; color: var(--text-sub);">הגדרת תפקיד, מדיניות ונהלי עבודה בשפה עסקית פשוטה.</div>
+          <!-- Left: היום -->
+          <div class="glass-card" style="border-top: 4px solid var(--ks-red); text-align: center;">
+            <div style="font-size: 18px; font-weight: 800; color: var(--ks-red); margin-bottom: 14px;">היום: עומס ועבודה ידנית</div>
+            <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+              <span class="chip">✉️ הודעות</span>
+              <span class="chip">📄 מסמכים</span>
+              <span class="chip">💻 מערכות</span>
+              <span class="chip">📊 דוחות</span>
             </div>
-
-            <div class="glass-card" style="border-right: 4px solid var(--ks-cyan);">
-              <div style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">📚 ידע ארגוני (<span dir="ltr">Knowledge / RAG</span>)</div>
-              <div style="font-size: 12px; color: var(--text-sub);">שליפת מחקרי רייטינג, מסמכי מדיניות וארכיון קשת.</div>
-            </div>
+            <div style="font-size: 36px; margin-bottom: 8px;">👤</div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--navy-900);">המנהל מרכז, בודק ומסכם ידנית שעות בכל בוקר</div>
           </div>
 
-          <!-- Center Brain -->
-          <div style="background: var(--navy-900); color: var(--white); border-radius: 20px; padding: 28px 20px; text-align: center; box-shadow: var(--shadow-dark); border: 2px solid var(--ks-cyan);">
-            <div style="font-size: 36px; margin-bottom: 6px;">🧠</div>
-            <div class="chip" style="background: rgba(0, 180, 216, 0.2); color: var(--ks-cyan); margin-bottom: 10px;">REASONING CORE</div>
-            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">מנוע הסקת המסקנות</h3>
-            <p style="font-size: 13px; color: var(--text-light-sub); line-height: 1.4; margin-bottom: 14px;">
-              מעבד את המידע, מקבל החלטות ובוחר אילו כלים להפעיל.
-            </p>
-            <div style="background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--ks-yellow);">
-              🛡️ מעטפת הרשאות ואבטחה (<span dir="ltr">Permissions</span>)
+          <!-- Arrow -->
+          <div style="font-size: 32px; color: var(--ks-blue); font-weight: 800;">←</div>
+
+          <!-- Right: עם סוכן AI -->
+          <div class="glass-card" style="background: var(--navy-900); color: var(--white); border-top: 4px solid var(--ks-green); text-align: center;">
+            <div style="font-size: 18px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 14px;">עם אייג’נט: תהליך מונחה יעד</div>
+            <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; font-size: 12px;">
+              <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 6px;">⏰ טריגר מתוזמן</span>
+              <span>←</span>
+              <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 6px;">📥 איסוף מידע</span>
+              <span>←</span>
+              <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 6px;">🧠 ניתוח</span>
+              <span>←</span>
+              <span style="background: rgba(0,166,81,0.2); color: #6EE7B7; padding: 4px 10px; border-radius: 6px;">📝 טיוטה לאישור</span>
             </div>
+            <div style="font-size: 36px; margin-bottom: 8px;">✅</div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--ks-yellow);">המידע מסוכם ומאומת מראש — המנהל רק מאשר</div>
           </div>
 
-          <!-- Right Column -->
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="glass-card" style="border-right: 4px solid var(--ks-green);">
-              <div style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">⚙️ כלים ו-APIs (<span dir="ltr">Tools</span>)</div>
-              <div style="font-size: 12px; color: var(--text-sub);">ממשקי גישה למסדי נתונים, מערכות שידור, CRM ויומנים.</div>
-            </div>
+        </div>
+      </div>
 
-            <div class="glass-card" style="border-right: 4px solid var(--ks-orange);">
-              <div style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">📍 זיכרון ומצב (<span dir="ltr">Memory &amp; State</span>)</div>
-              <div style="font-size: 12px; color: var(--text-sub);">מעקב אחר השלב הנוכחי בתהליך ושמירת העדפות.</div>
+      <div class="take">
+        <div class="take-badge">תמצית התועלת</div>
+        <div class="take-text">
+          <strong>"מאיסוף ידני של מידע — לתובנה מוכנה לקבלת החלטה."</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 04: סולם היכולות (5 שלבים)
+         ========================================================================== -->
+    <div class="page aurora-light" id="p4">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> מדרג בשלות | 5 רמות</div>
+        <h1 class="title">סולם היכולות: <span class="spec">מיצירת תוכן לאוטונומיה</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; align-items: flex-end;">
+          
+          <div class="glass-card" style="border-top: 4px solid #94A3B8; height: 260px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 800; color: #64748B;">שלב 1</div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">יצירת תוכן</h3>
+              <p style="font-size: 12px; color: var(--text-sub);">ניסוח וסיכום טקסט</p>
+            </div>
+            <div style="background: #F1F5F9; padding: 6px; border-radius: 6px; font-size: 11px; text-align: center; font-weight: 700;">צ'אט בסיסי</div>
+          </div>
+
+          <div class="glass-card" style="border-top: 4px solid var(--ks-cyan); height: 290px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 800; color: var(--ks-blue);">שלב 2</div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">ידע ארגוני</h3>
+              <p style="font-size: 12px; color: var(--text-sub);">תשובות עם מקורות (<span class="ltr-term">RAG</span>)</p>
+            </div>
+            <div style="background: rgba(0,180,216,0.1); padding: 6px; border-radius: 6px; font-size: 11px; text-align: center; font-weight: 700; color: var(--navy-900);">חיפוש במסמכים</div>
+          </div>
+
+          <div class="glass-card" style="border-top: 4px solid var(--ks-green); height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 800; color: #007A3D;">שלב 3</div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">שימוש בכלים</h3>
+              <p style="font-size: 12px; color: var(--text-sub);">גישה למערכות ו-APIs</p>
+            </div>
+            <div style="background: rgba(0,166,81,0.1); padding: 6px; border-radius: 6px; font-size: 11px; text-align: center; font-weight: 700; color: #007A3D;">קריאת נתונים</div>
+          </div>
+
+          <div class="glass-card" style="border-top: 4px solid var(--ks-orange); height: 350px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 800; color: #C2410C;">שלב 4</div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">תכנון וביצוע</h3>
+              <p style="font-size: 12px; color: var(--text-sub);">פירוק משימה מורכבת</p>
+            </div>
+            <div style="background: rgba(255,109,0,0.1); padding: 6px; border-radius: 6px; font-size: 11px; text-align: center; font-weight: 700; color: #C2410C;">ביצוע רב-שלבי</div>
+          </div>
+
+          <div class="glass-card" style="border-top: 4px solid var(--ks-purple); height: 380px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 800; color: #7B2D8E;">שלב 5</div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">אוטונומיה</h3>
+              <p style="font-size: 12px; color: var(--text-sub);">ניטור ותגובה למדיניות</p>
+            </div>
+            <div style="background: rgba(123,45,142,0.1); padding: 6px; border-radius: 6px; font-size: 11px; text-align: center; font-weight: 700; color: #7B2D8E;">בקרה רציפה</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="take">
+        <div class="take-badge">כלל מנחה</div>
+        <div class="take-text">
+          <strong>"יותר יכולת דורשת יותר בקרה."</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 05: איך אייג'נט עובד? (THE AGENT COGNITIVE LOOP)
+         ========================================================================== -->
+    <div class="page dark-glow" id="p5">
+      <div class="wm on-dark">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> תהליך קוגניטיבי | הלולאה החוזרת</div>
+        <h1 class="title">איך אייג’נט עובד? <span class="spec">לולאת הפעולה וההסקה</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 30px; align-items: center;">
+          
+          <!-- Circular Loop Diagram (SVG) -->
+          <div class="dark-card" style="display: flex; justify-content: center; align-items: center; padding: 24px;">
+            <svg width="460" height="340" viewBox="0 0 460 340">
+              <!-- Center Hub -->
+              <circle cx="230" cy="170" r="55" fill="#0F2548" stroke="#00B4D8" stroke-width="3" filter="drop-shadow(0 0 10px rgba(0,180,216,0.5))"/>
+              <text x="230" y="165" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="800" text-anchor="middle">מטרה</text>
+              <text x="230" y="185" fill="#00B4D8" font-family="Heebo" font-size="14" font-weight="800" text-anchor="middle">עסקית</text>
+
+              <!-- Node 1: להבין את היעד (Top) -->
+              <rect x="160" y="15" width="140" height="42" rx="8" fill="#173664" stroke="#00B4D8" stroke-width="1.5"/>
+              <text x="230" y="41" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">1. להבין את היעד</text>
+
+              <!-- Node 2: לתכנן צעד (Top-Left in RTL reading / Right in SVG) -->
+              <rect x="305" y="90" width="140" height="42" rx="8" fill="#173664" stroke="#00A651" stroke-width="1.5"/>
+              <text x="375" y="116" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">2. לתכנן את הצעד</text>
+
+              <!-- Node 3: להפעיל כלי (Bottom Right) -->
+              <rect x="290" y="240" width="140" height="42" rx="8" fill="#173664" stroke="#FFD100" stroke-width="1.5"/>
+              <text x="360" y="266" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">3. להפעיל כלי</text>
+
+              <!-- Node 4: לבחון תוצאה (Bottom Left) -->
+              <rect x="30" y="240" width="140" height="42" rx="8" fill="#173664" stroke="#FF6D00" stroke-width="1.5"/>
+              <text x="100" y="266" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">4. לבחון תוצאה</text>
+
+              <!-- Node 5: לתקן ולהמשיך (Top Left) -->
+              <rect x="15" y="90" width="140" height="42" rx="8" fill="#173664" stroke="#E4002B" stroke-width="1.5"/>
+              <text x="85" y="116" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">5. לתקן ולהמשיך</text>
+
+              <!-- Connecting Loop Circle (Dotted) -->
+              <circle cx="230" cy="170" r="110" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6,6"/>
+            </svg>
+          </div>
+
+          <!-- Concrete Keshet Example Flow -->
+          <div class="dark-card">
+            <h3 style="font-size: 17px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 12px;">
+              תרחיש בפועל: תקציר מנהלים יומי
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+              <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
+                <strong>1. איסוף נתונים:</strong> שליפת טבלאות רייטינג מ-Snowflake.
+              </div>
+              <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
+                <strong>2. ניתוח מגמות:</strong> הצלבת רצועות שידור מול שבוע קודם.
+              </div>
+              <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
+                <strong>3. בדיקת מקורות:</strong> אימות חריגות מול לוח השידורים בפועל.
+              </div>
+              <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
+                <strong>4. יצירת טיוטה:</strong> ניסוח 3 תובנות מפתח.
+              </div>
+              <div style="background: rgba(0,166,81,0.2); color: #6EE7B7; padding: 8px 12px; border-radius: 6px; font-weight: 700;">
+                <strong>5. אישור מנהל:</strong> משלוח הטיוטה למנהל לקראת ישיבת בוקר.
+              </div>
             </div>
           </div>
 
@@ -866,15 +746,15 @@
       </div>
 
       <div class="take">
-        <div class="take-badge">תובנה ניהולית</div>
+        <div class="take-badge">עיקרון איטרטיבי</div>
         <div class="take-text">
-          המודל עצמו אינו יודע דבר על קשת — <span class="hi">החיבור לידע, לכלים ולהרשאות הארגוניות</span> הוא שמייצר את הבידול והערך העסקי.
+          <strong>"אייג’נט אינו מחזיר תשובה אחת בלבד — הוא פועל במחזוריות עד להשגת היעד או עצירה לפי מדיניות."</strong>
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         MAIN SLIDE 06: CONNECTING TO THE ENTERPRISE (Tools & MCP Hub)
+         SLIDE 06: אוטומציה, WORKFLOW ואייג'נט
          ========================================================================== -->
     <div class="page aurora-light" id="p6">
       <div class="wm">
@@ -882,56 +762,244 @@
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 06</span> חיבור למערכות | סטנדרטיזציה</div>
-        <h1 class="title">חיבור למערכות הארגון: <span class="spec">כלים, APIs ופרוטוקול MCP</span></h1>
+        <div class="eyebrow"><span class="dot"></span> ארכיטקטורה היברידית | תפקידים ברורים</div>
+        <h1 class="title">אוטומציה, <span class="ltr-term">Workflow</span> ואייג'נט: <span class="spec">השילוב המשולש</span></h1>
         <div class="specbar"></div>
-        <p class="subtitle-text">
-          כלים הם מה שמאפשר לסוכן לעבור משיחה על העבודה — לביצוע פעולות ישירות במערכות הארגון.
-        </p>
       </div>
 
       <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px;">
-          
-          <!-- Tool Calling Sequence -->
-          <div class="glass-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <h3 style="font-size: 18px; font-weight: 800; color: var(--navy-900);">מנגנון הפעלת הכלים (<span dir="ltr">Tool Calling</span>)</h3>
-              <span class="chip" style="background: rgba(0, 180, 216, 0.1);">FLOW</span>
-            </div>
+        
+        <!-- 3-Column Visual Comparison -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+          <div class="glass-card" style="border-top: 4px solid #64748B; text-align: center;">
+            <div style="font-size: 24px; margin-bottom: 4px;">⚡</div>
+            <h3 style="font-size: 17px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">אוטומציה</h3>
+            <p style="font-size: 13px; color: var(--text-sub);">הצעדים ידועים וקבועים מראש</p>
+          </div>
 
-            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
-              <div style="background: #F8FAFC; padding: 8px 12px; border-radius: 6px; border-right: 3px solid #64748B;">
-                <strong>1. צורך:</strong> "האם ניתן לקבוע פגישה עם דנה מחר בצהריים?"
-              </div>
-              <div style="background: #F8FAFC; padding: 8px 12px; border-radius: 6px; border-right: 3px solid var(--ks-cyan);">
-                <strong>2. הפעלת כלי:</strong> הסוכן קורא ל-`Calendar Tool` לבדיקת זמינות
-              </div>
-              <div style="background: #F8FAFC; padding: 8px 12px; border-radius: 6px; border-right: 3px solid var(--ks-green);">
-                <strong>3. תצפית מערכת:</strong> היומן מחזיר משבצת פנויה ב-14:00
-              </div>
-              <div style="background: rgba(0, 180, 216, 0.08); padding: 8px 12px; border-radius: 6px; border-right: 3px solid var(--ks-blue); font-weight: 700;">
-                <strong>4. מענה מנומק:</strong> "דנה פנויה מחר ב-14:00. האם להוציא זימון?"
-              </div>
+          <div class="glass-card" style="border-top: 4px solid var(--ks-blue); text-align: center;">
+            <div style="font-size: 24px; margin-bottom: 4px;">🔄</div>
+            <h3 style="font-size: 17px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">Workflow</h3>
+            <p style="font-size: 13px; color: var(--text-sub);">מחבר בין מערכות לפי תהליך מוגדר</p>
+          </div>
+
+          <div class="glass-card" style="border-top: 4px solid var(--ks-cyan); text-align: center;">
+            <div style="font-size: 24px; margin-bottom: 4px;">🧠</div>
+            <h3 style="font-size: 17px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">סוכן AI (Agent)</h3>
+            <p style="font-size: 13px; color: var(--text-sub);">מחליט מה לעשות בכל מצב משתנה</p>
+          </div>
+        </div>
+
+        <!-- Hybrid Pipeline Flow -->
+        <div class="glass-card" style="padding: 16px 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 700;">
+            <div style="background: #F1F5F9; padding: 8px 14px; border-radius: 8px;">1. Trigger / תזמון</div>
+            <div style="color: var(--slate-400);">←</div>
+            <div style="background: #F1F5F9; padding: 8px 14px; border-radius: 8px;">2. Workflow קבוע (80%)</div>
+            <div style="color: var(--slate-400);">←</div>
+            <div style="background: rgba(0,180,216,0.15); color: var(--navy-900); padding: 8px 14px; border-radius: 8px; border: 1px solid var(--ks-cyan);">3. אייג'נט (החלטה 20%)</div>
+            <div style="color: var(--slate-400);">←</div>
+            <div style="background: #F1F5F9; padding: 8px 14px; border-radius: 8px;">4. Tool / API</div>
+            <div style="color: var(--slate-400);">←</div>
+            <div style="background: #F1F5F9; padding: 8px 14px; border-radius: 8px;">5. אימות</div>
+            <div style="color: var(--slate-400);">←</div>
+            <div style="background: rgba(0,166,81,0.15); color: #007A3D; padding: 8px 14px; border-radius: 8px;">6. אישור או ביצוע</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="take">
+        <div class="take-badge">מסר מפתח</div>
+        <div class="take-text">
+          <strong>"האוטומציה מגדירה את המסלול. האייג’נט בוחר את הצעד הבא."</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 07: ערך עסקי ומקרי בוחן
+         ========================================================================== -->
+    <div class="page aurora-light" id="p7">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> ערך עסקי | תרחישי מפתח</div>
+        <h1 class="title">ערך עסקי: <span class="spec">ארבעה תרחישי קלט-פעולה-תוצר</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        
+        <!-- 4 Compact Cards -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px;">
+          
+          <div class="glass-card" style="border-top: 4px solid var(--ks-blue); padding: 16px;">
+            <div style="font-size: 22px; margin-bottom: 4px;">📊</div>
+            <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">תקציר מנהלים</h3>
+            <div style="font-size: 12px; color: var(--text-sub); line-height: 1.5;">
+              <strong>קלט:</strong> רייטינג, שוק, דוחות<br>
+              <strong>פעולה:</strong> איסוף וניתוח מגמות<br>
+              <strong>תוצר:</strong> טיוטה לאישור מנהל
             </div>
           </div>
 
-          <!-- MCP Standard Hub -->
-          <div class="glass-card" style="background: var(--navy-900); color: var(--white); border-color: rgba(255,255,255,0.1);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <h3 style="font-size: 18px; font-weight: 800; color: var(--ks-cyan);">פרוטוקול MCP האחיד</h3>
-              <span class="chip" style="background: rgba(255,255,255,0.15); color: var(--white);">Model Context Protocol</span>
+          <div class="glass-card" style="border-top: 4px solid var(--ks-orange); padding: 16px;">
+            <div style="font-size: 22px; margin-bottom: 4px;">💻</div>
+            <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">איכות קוד (mako)</h3>
+            <div style="font-size: 12px; color: var(--text-sub); line-height: 1.5;">
+              <strong>קלט:</strong> מאגרי קוד ובדיקות<br>
+              <strong>פעולה:</strong> איתור באגים<br>
+              <strong>תוצר:</strong> הצעת תיקון למפתחים
             </div>
+          </div>
 
-            <p style="font-size: 13px; color: var(--text-light-sub); line-height: 1.4; margin-bottom: 14px;">
-              תקן פתוח המגדיר שפה אחידה לחיבור סוכנים למערכות הארגון (בדומה ל-USB בעולם החומרה) ומקטין עלויות אינטגרציה.
-            </p>
+          <div class="glass-card" style="border-top: 4px solid var(--ks-purple); padding: 16px;">
+            <div style="font-size: 22px; margin-bottom: 4px;">📡</div>
+            <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">ניטור שידורים</h3>
+            <div style="font-size: 12px; color: var(--text-sub); line-height: 1.5;">
+              <strong>קלט:</strong> לוח שידורים ולוגים<br>
+              <strong>פעולה:</strong> זיהוי פערי זמנים<br>
+              <strong>תוצר:</strong> התראה בזמן אמת לחדר בקרה
+            </div>
+          </div>
 
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 12px; font-weight: 600;">
-              <div style="background: rgba(255,255,255,0.08); padding: 8px; border-radius: 6px;">📁 ארכיון ומדיה קשת</div>
-              <div style="background: rgba(255,255,255,0.08); padding: 8px; border-radius: 6px;">❄️ מסדי Snowflake</div>
-              <div style="background: rgba(255,255,255,0.08); padding: 8px; border-radius: 6px;">✉️ Outlook &amp; Teams</div>
-              <div style="background: rgba(255,255,255,0.08); padding: 8px; border-radius: 6px;">📊 מערכות שידור</div>
+          <div class="glass-card" style="border-top: 4px solid var(--ks-green); padding: 16px;">
+            <div style="font-size: 22px; margin-bottom: 4px;">📚</div>
+            <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">ידע ארגוני</h3>
+            <div style="font-size: 12px; color: var(--text-sub); line-height: 1.5;">
+              <strong>קלט:</strong> נהלים ומסמכים<br>
+              <strong>פעולה:</strong> שליפה מאומתת<br>
+              <strong>תוצר:</strong> תשובה מבוססת מקורות
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Metric Chips -->
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <span class="chip">⏱️ זמן ביצוע</span>
+          <span class="chip">🎯 איכות תוצר</span>
+          <span class="chip">🛡️ אפס שגיאות</span>
+          <span class="chip">💰 עלות משימה</span>
+          <span class="chip">👥 שיעור אימוץ</span>
+          <span class="chip">✍️ % דורש אישור אנושי</span>
+        </div>
+
+      </div>
+
+      <div class="take">
+        <div class="take-badge">תמצית ROI</div>
+        <div class="take-text">
+          מודדים הצלחה ב<strong>זמן שנחסך, קיצור זמני תגובה ואפס שגיאות תפעוליות</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 08: גבולות האוטונומיה
+         ========================================================================== -->
+    <div class="page dark-glow" id="p8">
+      <div class="wm on-dark">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> מדרג סיכון | 4 רמות בקרה</div>
+        <h1 class="title">גבולות האוטונומיה: <span class="spec">התאמת הבקרה לסיכון</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch;">
+          
+          <div class="dark-card" style="border-top: 4px solid var(--ks-green); text-align: center;">
+            <div style="font-size: 14px; font-weight: 800; color: #6EE7B7; margin-bottom: 6px;">רמה 1: המלצה</div>
+            <div style="font-size: 24px; margin-bottom: 8px;">💡</div>
+            <div style="font-size: 13px; color: var(--text-light-sub);">האייג’נט מציג תובנה בלבד</div>
+            <div style="background: rgba(0,166,81,0.2); padding: 4px; border-radius: 4px; font-size: 11px; margin-top: 10px;">דוגמה: סיכום פגישה</div>
+          </div>
+
+          <div class="dark-card" style="border-top: 4px solid var(--ks-cyan); text-align: center;">
+            <div style="font-size: 14px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 6px;">רמה 2: טיוטה</div>
+            <div style="font-size: 24px; margin-bottom: 8px;">📝</div>
+            <div style="font-size: 13px; color: var(--text-light-sub);">טיוטה מוכנה לאישור אנושי</div>
+            <div style="background: rgba(0,180,216,0.2); padding: 4px; border-radius: 4px; font-size: 11px; margin-top: 10px;">דוגמה: ניסוח מייל</div>
+          </div>
+
+          <div class="dark-card" style="border-top: 4px solid var(--ks-orange); text-align: center;">
+            <div style="font-size: 14px; font-weight: 800; color: #FDBA74; margin-bottom: 6px;">רמה 3: ביצוע מוגבל</div>
+            <div style="font-size: 24px; margin-bottom: 8px;">⚡</div>
+            <div style="font-size: 13px; color: var(--text-light-sub);">פעולה אוטומטית בסיכון נמוך</div>
+            <div style="background: rgba(255,109,0,0.2); padding: 4px; border-radius: 4px; font-size: 11px; margin-top: 10px;">דוגמה: התראה פנימית</div>
+          </div>
+
+          <div class="dark-card" style="border-top: 4px solid var(--ks-red); text-align: center;">
+            <div style="font-size: 14px; font-weight: 800; color: #FFAAAA; margin-bottom: 6px;">רמה 4: מדיניות</div>
+            <div style="font-size: 24px; margin-bottom: 8px;">🛡️</div>
+            <div style="font-size: 13px; color: var(--text-light-sub);">תהליך רב-שלבי בגבולות מוגדרים</div>
+            <div style="background: rgba(228,0,43,0.2); padding: 4px; border-radius: 4px; font-size: 11px; margin-top: 10px;">דוגמה: ניטור שגיאות קוד</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="take">
+        <div class="take-badge">כלל שליטה</div>
+        <div class="take-text">
+          <strong>"ככל שהאייג’נט פועל יותר — כך אנחנו שולטים ומנטרים יותר."</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 09: ממה אייג'נט בנוי? (ARCHITECTURE MAP)
+         ========================================================================== -->
+    <div class="page aurora-light" id="p9">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> מבט מערכתי | אנטומיה</div>
+        <h1 class="title">ממה אייג’נט בנוי? <span class="spec">המערכת שסביב המודל</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 18px; align-items: center;">
+          
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-right: 4px solid var(--ks-purple); padding: 14px;">
+              <strong style="color: var(--navy-900);">📜 הוראות ומדיניות:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">ספר נהלים וגבולות גזרה</div>
+            </div>
+            <div class="glass-card" style="border-right: 4px solid var(--ks-cyan); padding: 14px;">
+              <strong style="color: var(--navy-900);">📚 ידע ארגוני:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">מסמכים, דוחות ומאגרים</div>
+            </div>
+          </div>
+
+          <!-- Center Brain -->
+          <div style="background: var(--navy-900); color: var(--white); border-radius: 18px; padding: 22px; text-align: center; border: 2px solid var(--ks-cyan); box-shadow: var(--shadow-dark);">
+            <div style="font-size: 32px; margin-bottom: 4px;">🧠</div>
+            <div class="chip" style="background: rgba(0, 180, 216, 0.2); color: var(--ks-cyan); margin-bottom: 6px;">Agent Runtime</div>
+            <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 4px;">מודל שפה ומנוע הסקה</h3>
+            <div style="font-size: 12px; color: var(--text-light-sub);">מפרש, מתכנן ובוחר פעולות</div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-right: 4px solid var(--ks-green); padding: 14px;">
+              <strong style="color: var(--navy-900);">⚙️ כלים ו-APIs:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">חיבור למערכות קשת</div>
+            </div>
+            <div class="glass-card" style="border-right: 4px solid var(--ks-orange); padding: 14px;">
+              <strong style="color: var(--navy-900);">📍 זיכרון והרשאות:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">מעקב ביצוע ובקרת גישה</div>
             </div>
           </div>
 
@@ -939,69 +1007,181 @@
       </div>
 
       <div class="take">
-        <div class="take-badge">תועלת עסקית</div>
+        <div class="take-badge">תובנת מערכת</div>
         <div class="take-text">
-          אימוץ תקן <span class="hi">MCP מקטין עלויות פיתוח ואינטגרציה</span> ומאפשר להחליף מודלים בקלות ללא שינוי התשתיות הארגוניות.
+          <strong>"המודל הוא רכיב אחד במערכת שלמה."</strong> הערך נוצר מחיבור הכלים, הנתונים והבקרות.
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         MAIN SLIDE 07: AUTONOMY & GOVERNANCE (More Autonomy = More Control)
+         SLIDE 10: SKILLS, MARKDOWN ו-MCP (העובד הדיגיטלי)
          ========================================================================== -->
-    <div class="page dark-glow" id="p7">
+    <div class="page aurora-light" id="p10">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> תקנים והרחבה | אנלוגיה</div>
+        <h1 class="title"><span class="ltr-term">Skills</span>, <span class="ltr-term">Markdown</span> ו-<span class="ltr-term">MCP</span>: <span class="spec">העובד הדיגיטלי</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; text-align: center;">
+          
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">📖</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900);">ספר נהלים</h4>
+            <div style="font-size: 11px; color: var(--ks-blue); font-weight: 700; margin-top: 4px;">Markdown</div>
+          </div>
+
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">🎯</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900);">מומחיות</h4>
+            <div style="font-size: 11px; color: var(--ks-green); font-weight: 700; margin-top: 4px;">Skill</div>
+          </div>
+
+          <div class="glass-card" style="background: var(--navy-900); color: var(--white); padding: 16px; border: 1px solid var(--ks-cyan);">
+            <div style="font-size: 24px; margin-bottom: 6px;">🔌</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--ks-cyan);">שקע חיבור</h4>
+            <div style="font-size: 11px; color: var(--ks-yellow); font-weight: 700; margin-top: 4px;">MCP (תקן פתוח)</div>
+          </div>
+
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">💻</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900);">מערכות</h4>
+            <div style="font-size: 11px; color: var(--ks-orange); font-weight: 700; margin-top: 4px;">Connectors</div>
+          </div>
+
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">🛡️</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900);">כרטיס גישה</h4>
+            <div style="font-size: 11px; color: var(--ks-purple); font-weight: 700; margin-top: 4px;">הרשאות ואישורים</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="take">
+        <div class="take-badge">הערת ממשל</div>
+        <div class="take-text">
+          <strong>"MCP מחבר בין המודל לכלים — אך אינו מעניק הרשאות מעצמו."</strong> הארגון תמיד שולט בגישה.
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 11: איך כמה אייג'נטים עובדים יחד? (MULTI-AGENT)
+         ========================================================================== -->
+    <div class="page aurora-light" id="p11">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> תיאום מרובה סוכנים | התמחות</div>
+        <h1 class="title">איך כמה אייג’נטים עובדים יחד? <span class="spec">צוות מומחים מנוהל</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center;">
+          
+          <!-- Coordinator Diagram -->
+          <div class="glass-card" style="padding: 20px; text-align: center;">
+            <div style="display: inline-block; background: var(--navy-900); color: var(--ks-cyan); padding: 6px 16px; border-radius: 8px; font-weight: 800; font-size: 13px; margin-bottom: 16px;">
+              🎯 אייג’נט מתאם (Coordinator)
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+              <div style="background: #F8FAFC; padding: 10px 6px; border-radius: 6px; border-top: 3px solid var(--ks-blue); font-size: 12px; font-weight: 700;">
+                🔍 מחקר
+              </div>
+              <div style="background: #F8FAFC; padding: 10px 6px; border-radius: 6px; border-top: 3px solid var(--ks-green); font-size: 12px; font-weight: 700;">
+                📈 ניתוח נתונים
+              </div>
+              <div style="background: #F8FAFC; padding: 10px 6px; border-radius: 6px; border-top: 3px solid var(--ks-yellow); font-size: 12px; font-weight: 700;">
+                🛡️ בדיקת מקורות
+              </div>
+              <div style="background: #F8FAFC; padding: 10px 6px; border-radius: 6px; border-top: 3px solid var(--ks-purple); font-size: 12px; font-weight: 700;">
+                📝 יצירת מסמך
+              </div>
+            </div>
+          </div>
+
+          <!-- Decision Callouts -->
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-right: 4px solid var(--ks-green); padding: 12px 16px;">
+              <strong style="color: var(--ks-green);">מתי כן?</strong>
+              <div style="font-size: 13px; color: var(--text-dark); margin-top: 2px;">תפקידים ברורים ונפרדים המשפרים איכות ובקרה.</div>
+            </div>
+
+            <div class="glass-card" style="border-right: 4px solid var(--ks-red); padding: 12px 16px;">
+              <strong style="color: var(--ks-red);">מתי לא?</strong>
+              <div style="font-size: 13px; color: var(--text-dark); margin-top: 2px;">כאשר אייג’נט יחיד מספיק — כדי למנוע מורכבות ועלות.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="take">
+        <div class="take-badge">כלל פיצול</div>
+        <div class="take-text">
+          <strong>"מתחילים מאייג’נט אחד. מפצלים למספר אייג’נטים רק כאשר הדבר משפר איכות, שליטה או הפרדת אחריות."</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 12: סיכונים ובקרות (6 זוגות מרכזיים)
+         ========================================================================== -->
+    <div class="page dark-glow" id="p12">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 07</span> בקרת הרשאות | אחריות וממשל</div>
-        <h1 class="title">יותר אוטונומיה מחייבת יותר שליטה: <span class="spec">ממשל, הרשאות ובקרה</span></h1>
+        <div class="eyebrow"><span class="dot"></span> ניהול סיכונים | מעטפת בקרה</div>
+        <h1 class="title">סיכונים ובקרות: <span class="spec">מיפוי ששת הסיכונים המרכזיים</span></h1>
         <div class="specbar"></div>
-        <p class="subtitle-text">
-          השאלה אינה "האם הסוכן אוטונומי", אלא כמה אוטונומיה אנו מתירים לכל פעולה עסקית ספציפית.
-        </p>
       </div>
 
       <div class="content-area">
-        <div class="dark-card" style="padding: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
           
-          <!-- Progression with Human Gate -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr 0.8fr 1fr; gap: 14px; align-items: center; text-align: center; margin-bottom: 20px;">
-            
-            <div style="background: rgba(0, 166, 81, 0.15); border: 1px solid var(--ks-green); border-radius: 10px; padding: 14px;">
-              <div style="font-size: 12px; font-weight: 800; color: var(--ks-green);">1. קריאה בלבד</div>
-              <div style="font-size: 15px; font-weight: 800; color: var(--white); margin: 4px 0;">איסוף נתונים</div>
-              <div style="font-size: 11px; color: var(--text-light-sub);">סיכון נמוך &rarr; אוטונומי</div>
-            </div>
-
-            <div style="background: rgba(0, 180, 216, 0.15); border: 1px solid var(--ks-cyan); border-radius: 10px; padding: 14px;">
-              <div style="font-size: 12px; font-weight: 800; color: var(--ks-cyan);">2. ניתוח וטיוטה</div>
-              <div style="font-size: 15px; font-weight: 800; color: var(--white); margin: 4px 0;">הכנת המלצה</div>
-              <div style="font-size: 11px; color: var(--text-light-sub);">סיכון מבוקר</div>
-            </div>
-
-            <!-- Gate -->
-            <div style="background: rgba(228, 0, 43, 0.25); border: 2px solid var(--ks-red); border-radius: 12px; padding: 16px 8px; box-shadow: 0 0 20px rgba(228,0,43,0.3);">
-              <div style="font-size: 22px;">🛑</div>
-              <div style="font-size: 12px; font-weight: 900; color: #FFAAAA;">שער אישור אנושי</div>
-            </div>
-
-            <div style="background: rgba(255, 109, 0, 0.15); border: 1px solid var(--ks-orange); border-radius: 10px; padding: 14px;">
-              <div style="font-size: 12px; font-weight: 800; color: var(--ks-orange);">3. ביצוע בפועל</div>
-              <div style="font-size: 15px; font-weight: 800; color: var(--white); margin: 4px 0;">פעולה במערכות</div>
-              <div style="font-size: 11px; color: var(--text-light-sub);">השפעה גבוהה &rarr; לאחר אישור</div>
-            </div>
-
+          <div class="dark-card" style="padding: 12px 16px; border-right: 4px solid var(--ks-red);">
+            <strong style="color: #FFAAAA; font-size: 13px;">1. מידע שגוי (הזיות)</strong>
+            <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 2px;">← מענה: מקורות מאומתים ושערי אימות</div>
           </div>
 
-          <!-- 5 Core Guardrails -->
-          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 12px; font-weight: 700; text-align: center;">
-            <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">🔑 הרשאות מינימליות</div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">👤 שער אישור לפעולות קריטיות</div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">📋 יומן ביקורת מלא</div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">💰 תקרת צעדים ותקציב</div>
-            <div style="background: rgba(255,255,255,0.06); padding: 8px; border-radius: 6px;">🔒 אבטחת מידע ופרטיות</div>
+          <div class="dark-card" style="padding: 12px 16px; border-right: 4px solid var(--ks-orange);">
+            <strong style="color: #FDBA74; font-size: 13px;">2. הרשאות עודפות</strong>
+            <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 2px;">← מענה: Least Privilege ו-RBAC לפי פעולה</div>
+          </div>
+
+          <div class="dark-card" style="padding: 12px 16px; border-right: 4px solid var(--ks-yellow);">
+            <strong style="color: #FDE047; font-size: 13px;">3. Prompt Injection</strong>
+            <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 2px;">← מענה: בידוד קלטים ובדיקות אימות</div>
+          </div>
+
+          <div class="dark-card" style="padding: 12px 16px; border-right: 4px solid var(--ks-green);">
+            <strong style="color: #6EE7B7; font-size: 13px;">4. דליפת מידע</strong>
+            <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 2px;">← מענה: סיווג מידע והסכמי Zero Retention</div>
+          </div>
+
+          <div class="dark-card" style="padding: 12px 16px; border-right: 4px solid var(--ks-cyan);">
+            <strong style="color: #7DD3FC; font-size: 13px;">5. פעולה לא רצויה</strong>
+            <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 2px;">← מענה: שער אישור אנושי חובה לפעולות כתיבה</div>
+          </div>
+
+          <div class="dark-card" style="padding: 12px 16px; border-right: 4px solid var(--ks-purple);">
+            <strong style="color: #E9D5FF; font-size: 13px;">6. עלות בלתי צפויה</strong>
+            <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 2px;">← מענה: תקרת צעדים ותקציב קשיח לכל ריצה</div>
           </div>
 
         </div>
@@ -1010,72 +1190,140 @@
       <div class="take">
         <div class="take-badge">בקרת סיכונים</div>
         <div class="take-text">
-          סוכן אינו מוסמך לבצע פעולות בעלות השפעה עסקית ללא <span class="hi">שער אישור אנושי מפורש</span> ורישום מלא ביומן ביקורת.
+          לכל יכולת אוטונומית יש <strong>מגבלה הנדסית ברורה</strong> שנבדקה טרם העלייה לסביבת ייצור.
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         MAIN SLIDE 08: WHEN TO USE WHAT (Executive Decision Tree)
+         SLIDE 13: אבטחה, פרטיות ותאימות (5 עמודי התווך)
          ========================================================================== -->
-    <div class="page aurora-light" id="p8">
+    <div class="page aurora-light" id="p13">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 08</span> מטריצת החלטה | בחירת הפתרון הנכון</div>
-        <h1 class="title">עץ החלטה ארגוני: <span class="spec">מתי אוטומציה, מתי סוכן ומתי אדם?</span></h1>
+        <div class="eyebrow"><span class="dot"></span> ממשל ארגוני | חמשת עמודי התווך</div>
+        <h1 class="title">אבטחה ומשילות: <span class="spec">חמשת עמודי הממשל</span></h1>
         <div class="specbar"></div>
-        <p class="subtitle-text">
-          השתמשו ברמת האינטליגנציה והאוטונומיה המינימלית הנדרשת כדי לפתור את הבעיה בצורה הטובה ביותר.
-        </p>
       </div>
 
       <div class="content-area">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; text-align: center;">
           
-          <div class="glass-card" style="display: flex; flex-direction: column;">
-            <div style="font-size: 13px; font-weight: 800; color: #64748B; margin-bottom: 6px;">בדיקה 1</div>
-            <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 10px; min-height: 48px;">
-              האם הכללים קבועים ודטרמיניסטיים ב-100%?
-            </div>
-            <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 12px;">חישובים, העברת קבצים, המרות פורמט.</div>
-            <div style="margin-top: auto; background: rgba(0, 166, 81, 0.12); color: #007A3D; padding: 10px; border-radius: 8px; font-weight: 700; text-align: center;">
-              ⚙️ אוטומציה קלאסית
-            </div>
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">🔑</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">זהות</h4>
+            <div style="font-size: 11px; color: var(--text-sub);">זהות כפולה לאייג'נט ולמשתמש</div>
           </div>
 
-          <div class="glass-card" style="display: flex; flex-direction: column;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 6px;">בדיקה 2</div>
-            <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 10px; min-height: 48px;">
-              האם נדרש שיקול דעת ועיבוד מידע לא מובנה?
-            </div>
-            <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 12px;">תחקיר טקסטים, סיכום והסקת מסקנות.</div>
-            <div style="margin-top: auto; background: rgba(0, 180, 216, 0.12); color: #007799; padding: 10px; border-radius: 8px; font-weight: 700; text-align: center;">
-              🤖 סוכן AI משימתי
-            </div>
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">🛡️</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">הרשאות</h4>
+            <div style="font-size: 11px; color: var(--text-sub);">בקרת גישה לפי פעולה וכלי</div>
           </div>
 
-          <div class="glass-card" style="display: flex; flex-direction: column;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-orange); margin-bottom: 6px;">בדיקה 3</div>
-            <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 10px; min-height: 48px;">
-              האם פעולה שגויה עלולה לגרום נזק עסקי?
-            </div>
-            <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 12px;">שינויים בשידור, תשלומים, עדכון נתונים.</div>
-            <div style="margin-top: auto; background: rgba(255, 109, 0, 0.12); color: #B34D00; padding: 10px; border-radius: 8px; font-weight: 700; text-align: center;">
-              🛡️ סוכן + שער אישור
-            </div>
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">🔒</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">מידע</h4>
+            <div style="font-size: 11px; color: var(--text-sub);">הצפנה ומדיניות אי-שמירה</div>
           </div>
 
-          <div class="glass-card" style="display: flex; flex-direction: column;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-purple); margin-bottom: 6px;">בדיקה 4</div>
-            <div style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 10px; min-height: 48px;">
-              האם ההחלטה מחייבת אמפתיה ואחריות אישית?
+          <div class="glass-card" style="padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">📋</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">תיעוד</h4>
+            <div style="font-size: 11px; color: var(--text-sub);">לוג ביקורת מלא ו-Tracing</div>
+          </div>
+
+          <div class="glass-card" style="border: 2px solid var(--ks-red); padding: 16px;">
+            <div style="font-size: 24px; margin-bottom: 6px;">🛑</div>
+            <h4 style="font-size: 14px; font-weight: 800; color: var(--ks-red); margin-bottom: 4px;">עצירה</h4>
+            <div style="font-size: 11px; color: var(--ks-red); font-weight: 700;">כפתור עצירת חירום (Kill Switch)</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="take">
+        <div class="take-badge">כלל הזהב</div>
+        <div class="take-text">
+          <strong>"לכל אייג’נט: בעלים, הרשאות, מדדים וכפתור עצירה."</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 14: תפעול ושיפור מתמשך (THE CONTINUOUS OPERATIONS LOOP)
+         ========================================================================== -->
+    <div class="page aurora-light" id="p14">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> ניהול בייצור | שיפור מתמיד</div>
+        <h1 class="title">תפעול ושיפור מתמשך: <span class="spec">לולאת מחזור החיים</span></h1>
+        <div class="specbar"></div>
+      </div>
+
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 30px; align-items: center;">
+          
+          <!-- 6-Stage Operations Loop (SVG) -->
+          <div class="glass-card" style="display: flex; justify-content: center; align-items: center; padding: 20px;">
+            <svg width="440" height="320" viewBox="0 0 440 320">
+              <!-- Center Hub -->
+              <circle cx="220" cy="160" r="50" fill="#0A1930" stroke="#00B4D8" stroke-width="2"/>
+              <text x="220" y="155" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="800" text-anchor="middle">ניהול אייג'נט</text>
+              <text x="220" y="173" fill="#00B4D8" font-family="Heebo" font-size="13" font-weight="800" text-anchor="middle">בייצור</text>
+
+              <!-- Node 1: תכנון (Top) -->
+              <rect x="160" y="10" width="120" height="38" rx="6" fill="#F1F5F9" stroke="#0057B8" stroke-width="1.5"/>
+              <text x="220" y="34" fill="#0A1930" font-family="Heebo" font-size="12" font-weight="700" text-anchor="middle">1. תכנון</text>
+
+              <!-- Node 2: בדיקות (Top Right) -->
+              <rect x="300" y="70" width="120" height="38" rx="6" fill="#F1F5F9" stroke="#00A651" stroke-width="1.5"/>
+              <text x="360" y="94" fill="#0A1930" font-family="Heebo" font-size="12" font-weight="700" text-anchor="middle">2. בדיקות</text>
+
+              <!-- Node 3: הפעלה (Bottom Right) -->
+              <rect x="300" y="210" width="120" height="38" rx="6" fill="#F1F5F9" stroke="#FFD100" stroke-width="1.5"/>
+              <text x="360" y="234" fill="#0A1930" font-family="Heebo" font-size="12" font-weight="700" text-anchor="middle">3. הפעלה</text>
+
+              <!-- Node 4: ניטור (Bottom) -->
+              <rect x="160" y="270" width="120" height="38" rx="6" fill="#F1F5F9" stroke="#FF6D00" stroke-width="1.5"/>
+              <text x="220" y="294" fill="#0A1930" font-family="Heebo" font-size="12" font-weight="700" text-anchor="middle">4. ניטור</text>
+
+              <!-- Node 5: הערכה (Bottom Left) -->
+              <rect x="20" y="210" width="120" height="38" rx="6" fill="#F1F5F9" stroke="#E4002B" stroke-width="1.5"/>
+              <text x="80" y="234" fill="#0A1930" font-family="Heebo" font-size="12" font-weight="700" text-anchor="middle">5. הערכה</text>
+
+              <!-- Node 6: שיפור (Top Left) -->
+              <rect x="20" y="70" width="120" height="38" rx="6" fill="#F1F5F9" stroke="#7B2D8E" stroke-width="1.5"/>
+              <text x="80" y="94" fill="#0A1930" font-family="Heebo" font-size="12" font-weight="700" text-anchor="middle">6. שיפור</text>
+
+              <!-- Circular Connecting Track -->
+              <circle cx="220" cy="160" r="105" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4,4"/>
+            </svg>
+          </div>
+
+          <!-- Compact Side Metrics -->
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-right: 4px solid var(--ks-cyan); padding: 14px;">
+              <strong style="color: var(--navy-900);">🎯 איכות ודיוק:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">בקרת תוצאות ואימות מקורות מתמשך</div>
             </div>
-            <div style="font-size: 12px; color: var(--text-sub); margin-bottom: 12px;">משא ומתן, יחסי עבודה, עריכה ערכית.</div>
-            <div style="margin-top: auto; background: rgba(123, 45, 142, 0.12); color: #5C1D6B; padding: 10px; border-radius: 8px; font-weight: 700; text-align: center;">
-              👤 הובלה אנושית בלבד
+
+            <div class="glass-card" style="border-right: 4px solid var(--ks-green); padding: 14px;">
+              <strong style="color: var(--navy-900);">💰 יעילות ועלות:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">מעקב אחר צריכת טוקנים וזמני ריצה</div>
+            </div>
+
+            <div class="glass-card" style="border-right: 4px solid var(--ks-purple); padding: 14px;">
+              <strong style="color: var(--navy-900);">✅ הצלחה מקצה לקצה:</strong>
+              <div style="font-size: 12px; color: var(--text-sub);">אחוז משימות שהושלמו ללא שגיאה</div>
             </div>
           </div>
 
@@ -1083,622 +1331,111 @@
       </div>
 
       <div class="take">
-        <div class="take-badge">כלל אצבע ניהולי</div>
+        <div class="take-badge">תובנה תפעולית</div>
         <div class="take-text">
-          שמרו על פשטות: <span class="hi">אל תשתמשו בסוכן יקר היכן שאוטומציה פשוטה עובדת</span>, ואל תאפשרו אוטונומיה ללא שער אישור במקומות רגישים.
+          <strong>אייג’נט אינו מערכת של "בנה ושכח"</strong> — הוא משתפר באופן רציף על בסיס נתוני אמת ומשוב משתמשים.
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         MAIN SLIDE 09: KESHET 3 CORE USE CASES (Concrete Enterprise Value)
+         SLIDE 15: איך מתחילים? (7-STEP ROADMAP & STRATEGIC ANCHOR)
          ========================================================================== -->
-    <div class="page aurora-light" id="p9">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 09</span> יישום בקשת | שלושה תרחישי ליבה</div>
-        <h1 class="title">איך זה נראה בפועל בקשת? <span class="spec">שלושה תרחישי ערך מיידיים</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          הטמעת סוכנים מתחילה בתהליכים מוגדרים שבהם שילוב ידע ארגוני וכלים מייצר התייעלות מיידית.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-          
-          <!-- Case 1 -->
-          <div class="glass-card" style="border-right: 5px solid var(--ks-blue); display: flex; flex-direction: column;">
-            <div style="font-size: 28px; margin-bottom: 8px;">📊</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">1. סוכן מודיעין ניהולי</h3>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">
-              איסוף נתוני רייטינג, מגמות שוק ודיווחים היסטוריים להפקת תקציר מנהלים מותאם אישית מדי בוקר ב-08:00.
-            </p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 12px; border: 1px dashed #CBD5E1;">
-              <strong>זרימה:</strong> רייטינג + ארכיון &rarr; סוכן &rarr; תקציר הנהלה
-            </div>
-          </div>
-
-          <!-- Case 2 -->
-          <div class="glass-card" style="border-right: 5px solid var(--ks-orange); display: flex; flex-direction: column;">
-            <div style="font-size: 28px; margin-bottom: 8px;">💻</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">2. סוכן פיתוח והנדסה</h3>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">
-              סריקת מאגרי קוד (<span dir="ltr">mako &amp; N12</span>), ניתוח בדיקות אוטומטיות, איתור באגים והכנת בדיקות קוד.
-            </p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 12px; border: 1px dashed #CBD5E1;">
-              <strong>זרימה:</strong> קוד + לוגים &rarr; סוכן &rarr; בדיקות ו-PR
-            </div>
-          </div>
-
-          <!-- Case 3 -->
-          <div class="glass-card" style="border-right: 5px solid var(--ks-purple); display: flex; flex-direction: column;">
-            <div style="font-size: 28px; margin-bottom: 8px;">📡</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">3. סוכן תפעול ושידור</h3>
-            <p style="font-size: 13px; color: var(--text-sub); margin-bottom: 14px;">
-              ניטור רציף של לוח השידורים, זיהוי חריגות ואימות זמינות חומרים ושיגור התראות בזמן אמת.
-            </p>
-            <div style="margin-top: auto; background: #F8FAFC; padding: 10px; border-radius: 8px; font-size: 12px; border: 1px dashed #CBD5E1;">
-              <strong>זרימה:</strong> לוח שידורים + לוגים &rarr; סוכן &rarr; התראות
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">המלצה ליישום</div>
-        <div class="take-text">
-          התחילו ב-<span class="hi">תרחיש אחד בעל ערך מדיד מובהק</span> (כגון מודיעין רייטינג יומי) כדי לבנות מיומנות ארגונית לפני התרחבות רחבה.
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         MAIN SLIDE 10: SAFE ADOPTION ROADMAP & 4 KPIS
-         ========================================================================== -->
-    <div class="page aurora-light" id="p10">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 10</span> מפת דרכים ומדידה | אימוץ מדורג</div>
-        <h1 class="title">אימוץ מדורג ובטוח: <span class="spec">מפת דרכים ומדדי בקרה</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          היעד אינו השגת אוטונומיה מקסימלית בכל מחיר — אלא התאמת רמת האוטונומיה המדויקת לכל תהליך עסקי.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center;">
-          
-          <!-- 3 Stages -->
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="glass-card" style="border-right: 5px solid var(--ks-cyan); padding: 16px 20px;">
-              <div style="font-size: 13px; font-weight: 800; color: var(--ks-blue);">שלב 1 • מיידי (חודשים 1–3)</div>
-              <div style="font-size: 16px; font-weight: 800; color: var(--navy-900);">סוכני ידע וסיוע פנימי</div>
-              <div style="font-size: 13px; color: var(--text-sub);">סריקת ידע ארגוני, מחקר וסיכום. סיכון אפסי וערך מיידי.</div>
-            </div>
-
-            <div class="glass-card" style="border-right: 5px solid var(--ks-green); padding: 16px 20px;">
-              <div style="font-size: 13px; font-weight: 800; color: #007A3D;">שלב 2 • הרחבה (חודשים 3–6)</div>
-              <div style="font-size: 16px; font-weight: 800; color: var(--navy-900);">סוכני כלים עם שער אישור</div>
-              <div style="font-size: 13px; color: var(--text-sub);">חיבור ל-APIs ו-MCP עם אישור אנושי (<span dir="ltr">HITL</span>) לפעולות.</div>
-            </div>
-
-            <div class="glass-card" style="border-right: 5px solid var(--ks-orange); padding: 16px 20px;">
-              <div style="font-size: 13px; font-weight: 800; color: #C2410C;">שלב 3 • הבשלה (חודשים 6–12)</div>
-              <div style="font-size: 16px; font-weight: 800; color: var(--navy-900);">אוטונומיה תחומה ומנוטרת</div>
-              <div style="font-size: 13px; color: var(--text-sub);">הרצת תהליכים שגרתיים בתוך גבולות תקציב ואבטחה מוגדרים.</div>
-            </div>
-          </div>
-
-          <!-- 4 Core KPIs -->
-          <div class="glass-card" style="background: var(--navy-900); color: var(--white); padding: 22px;">
-            <div style="font-size: 15px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 6px;">
-              4 מדדי הליבה להנהלה (<span dir="ltr">KPIs</span>)
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
-              <div style="background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 6px;">
-                🎯 <strong>שיעור הצלחה במשימה:</strong> האם היעד הושג?
-              </div>
-              <div style="background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 6px;">
-                💰 <strong>עלות וטוקנים:</strong> מעקב הוצאה פר משימה.
-              </div>
-              <div style="background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 6px;">
-                ⚙️ <strong>אמינות פעולות:</strong> תקינות קריאות ל-APIs.
-              </div>
-              <div style="background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 6px;">
-                🚨 <strong>שיעור הסלמה:</strong> כמה משימות דרשו התערבות.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">עיקרון ניהולי</div>
-        <div class="take-text">
-          אימוץ אחראי מתקדם לפי <span class="hi">רמת בשלות וביצועים מדודים</span>, ולא מתוך שאיפה עיוורת לאוטונומיה מלאה.
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         MAIN SLIDE 11: EXECUTIVE TAKEAWAY & CORE PRINCIPLES
-         ========================================================================== -->
-    <div class="page dark-glow" id="p11">
+    <div class="page dark-glow" id="p15">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge main-deck">MAIN 11</span> שורת המחץ להנהלה | עקרונות מובילים</div>
-        <h1 class="title">שורת המחץ להנהלה: <span class="spec">שלושת עקרונות הברזל</span></h1>
+        <div class="eyebrow"><span class="dot"></span> תוכנית פעולה | מפת דרכים</div>
+        <h1 class="title">איך מתחילים? <span class="spec">שבעת הצעדים לאימוץ מדורג</span></h1>
         <div class="specbar"></div>
       </div>
 
       <div class="content-area" style="justify-content: space-around;">
         
-        <!-- 3 Core Takeaways -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-          
-          <div class="dark-card" style="border-top: 4px solid var(--ks-cyan); text-align: center; padding: 26px;">
-            <div style="font-size: 32px; margin-bottom: 8px;">1️⃣</div>
-            <h3 style="font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 10px;">מתשובות לפעולות</h3>
-            <p style="font-size: 14px; color: var(--text-light-sub); line-height: 1.5;">
-              סוכנים מעבירים את ה-AI ממתן מענה לשאלות — לביצוע משימות אמיתיות במערכות הארגון.
-            </p>
+        <!-- 7 Steps Path -->
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center;">
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-cyan);">1</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">כאב עסקי</div>
           </div>
-
-          <div class="dark-card" style="border-top: 4px solid var(--ks-green); text-align: center; padding: 26px;">
-            <div style="font-size: 32px; margin-bottom: 8px;">2️⃣</div>
-            <h3 style="font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 10px;">ארכיטקטורה היברידית</h3>
-            <p style="font-size: 14px; color: var(--text-light-sub); line-height: 1.5;">
-              השילוב המנצח: ידע ארגוני + כלים + צינור אוטומציה יציב + שער אישור אנושי.
-            </p>
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-green);">2</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">מיפוי תהליך</div>
           </div>
-
-          <div class="dark-card" style="border-top: 4px solid var(--ks-orange); text-align: center; padding: 26px;">
-            <div style="font-size: 32px; margin-bottom: 8px;">3️⃣</div>
-            <h3 style="font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 10px;">שליטה וממשל</h3>
-            <p style="font-size: 14px; color: var(--text-light-sub); line-height: 1.5;">
-              יותר אוטונומיה מחייבת יותר שליטה. קובעים גבולות והרשאות לפני שמעניקים עצמאות.
-            </p>
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-yellow);">3</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">הפרדת צעדים</div>
           </div>
-
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-orange);">4</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">פיילוט בטוח</div>
+          </div>
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-purple);">5</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">הרשאות וכלים</div>
+          </div>
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-red);">6</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">מדידה</div>
+          </div>
+          <div class="dark-card" style="padding: 10px 6px;">
+            <div style="font-size: 12px; font-weight: 800; color: var(--ks-cyan);">7</div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--white); margin-top: 2px;">הרחבה</div>
+          </div>
         </div>
 
-        <!-- Closing Anchor Quote -->
-        <div style="background: rgba(15, 37, 72, 0.9); border: 2px solid var(--ks-cyan); border-radius: 16px; padding: 24px 36px; text-align: center; box-shadow: var(--shadow-dark);">
-          <div style="font-size: 22px; font-weight: 800; color: var(--white); line-height: 1.45;">
-            "היתרון התחרותי לא יגיע מגישה למודל שפה כזה או אחר — אלא מאיכות החיבור בין ה-AI <span class="spec">לידע, לכלים ולתהליכים העסקיים של קשת</span>."
+        <!-- Strategic Closing Quote -->
+        <div style="background: rgba(15, 37, 72, 0.9); border: 2px solid var(--ks-cyan); border-radius: 14px; padding: 18px 30px; text-align: center; box-shadow: var(--shadow-dark);">
+          <div style="font-size: 20px; font-weight: 800; color: var(--white); line-height: 1.45;">
+            "היתרון התחרותי של קשת יגיע מחיבור ה-AI ל<span class="spec">ידע הייחודי, לכלים ולתהליכי העבודה שלנו</span>."
           </div>
         </div>
 
       </div>
 
       <div class="take">
-        <div class="take-badge">סיום התדריך הראשי</div>
+        <div class="take-badge">שורת המחץ לסיום</div>
         <div class="take-text">
-          סוכני AI הם מכפילי כוח ארגוניים; שילוב יעד ברור, כלים מתאימים וממשל אחראי יבטיח הובלה דיגיטלית בטוחה.
+          <strong>"מתחילים קטן, מודדים, ורק אז מרחיבים — ברמת האוטונומיה הנכונה לכל תהליך."</strong>
         </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A1 (12): DETAILED AUTONOMY SPECTRUM
-         ========================================================================== -->
-    <div class="page appendix-mode" id="p12">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A1</span> ספקטרום האוטונומיה המורחב</div>
-        <h1 class="title">חוגת השליטה: <span class="spec">ארבע רמות אוטונומיה בארגון</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          מבט מפורט על רמות השליטה האנושית, דוגמאות לפעולות לאורך הציר ודרישות הממשל הנגזרות.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div class="glass-card" style="padding: 30px;">
-          <div style="height: 10px; border-radius: 5px; background: linear-gradient(90deg, var(--ks-green) 0%, var(--ks-yellow) 35%, var(--ks-orange) 70%, var(--ks-red) 100%); margin-bottom: 30px;"></div>
-
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
-            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border: 1px solid var(--gray-border);">
-              <div style="font-size: 13px; font-weight: 800; color: var(--ks-green);">רמה 1 • סיוע (Copilot)</div>
-              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">האדם יוזם ומבצע</div>
-              <div style="font-size: 12px; color: var(--text-sub);">הסוכן מציע טיוטה או סיכום; האדם מעתיק ומבצע.</div>
-            </div>
-
-            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border: 1px solid var(--gray-border);">
-              <div style="font-size: 13px; font-weight: 800; color: #D97706;">רמה 2 • אדם במעגל (HITL)</div>
-              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">הסוכן מכין, אדם מאשר</div>
-              <div style="font-size: 12px; color: var(--text-sub);">הסוכן מכין פעולה וממתין לאישור מפורש לשיגור.</div>
-            </div>
-
-            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border: 1px solid var(--gray-border);">
-              <div style="font-size: 13px; font-weight: 800; color: var(--ks-orange);">רמה 3 • אדם על המעגל (HOTL)</div>
-              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">ביצוע עם זכות וטו</div>
-              <div style="font-size: 12px; color: var(--text-sub);">הסוכן מבצע פעולות שוטפות ומדווח; האדם יכול לעצור.</div>
-            </div>
-
-            <div style="background: #F8FAFC; padding: 16px; border-radius: 12px; border: 1px solid var(--gray-border);">
-              <div style="font-size: 13px; font-weight: 800; color: var(--ks-red);">רמה 4 • אוטונומיה תחומה</div>
-              <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">עצמאות מלאה בגבולות</div>
-              <div style="font-size: 12px; color: var(--text-sub);">ביצוע רציף ללא מגע יד אדם בתוך תקרת תקציב וזמן.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A1</div>
-        <div class="take-text">מתאים לדיוני עומק על הגדרת מדיניות אוטונומיה תהליכית לקבוצות עבודה.</div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A2 (13): CONTEXT, KNOWLEDGE, MEMORY, STATE
-         ========================================================================== -->
-    <div class="page appendix-mode" id="p13">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A2</span> ארכיטקטורת מידע | 4 הממדים</div>
-        <h1 class="title">הקשר, ידע, זיכרון ו-State: <span class="spec">מבנה נתונים ארגוני</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          הפרדה חדה בין ארבעת הממדים מבטיחה ביצועים מדויקים ומונעת הצפת הקשר יקרה ואיטית.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
-          
-          <div class="glass-card" style="border-top: 4px solid var(--ks-blue);">
-            <div style="font-size: 24px; margin-bottom: 6px;">📑</div>
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-blue);">הקשר (<span dir="ltr">Context</span>)</div>
-            <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">"שולחן העבודה"</div>
-            <div style="font-size: 12px; color: var(--text-sub);">המידע הפעיל בתוך הבקשה הנוכחית. מתאפס בסיום.</div>
-          </div>
-
-          <div class="glass-card" style="border-top: 4px solid var(--ks-green);">
-            <div style="font-size: 24px; margin-bottom: 6px;">📚</div>
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-green);">ידע (<span dir="ltr">Knowledge / RAG</span>)</div>
-            <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">"הספרייה הארגונית"</div>
-            <div style="font-size: 12px; color: var(--text-sub);">מסמכים ונתונים של קשת הנשלפים לפי רלוונטיות.</div>
-          </div>
-
-          <div class="glass-card" style="border-top: 4px solid var(--ks-yellow);">
-            <div style="font-size: 24px; margin-bottom: 6px;">📝</div>
-            <div style="font-size: 13px; font-weight: 800; color: #D97706;">זיכרון (<span dir="ltr">Memory</span>)</div>
-            <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">"פנקס הרשמים"</div>
-            <div style="font-size: 12px; color: var(--text-sub);">העדפות משתמש ותובנות הנשמרות לאורך זמן.</div>
-          </div>
-
-          <div class="glass-card" style="border-top: 4px solid var(--ks-purple);">
-            <div style="font-size: 24px; margin-bottom: 6px;">📍</div>
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-purple);">מצב התהליך (<span dir="ltr">State</span>)</div>
-            <div style="font-size: 16px; font-weight: 800; margin: 4px 0;">"איפה אני בתהליך?"</div>
-            <div style="font-size: 12px; color: var(--text-sub);">מעקב אחר שלב הריצה: איסוף &rarr; ניתוח &rarr; אושר.</div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A2</div>
-        <div class="take-text">מתאים לתכנון ארכיטקטורת נתונים ושליפת RAG מול צוותי הנדסה.</div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A3 (14): SKILLS & INSTRUCTION ARCHITECTURE
-         ========================================================================== -->
-    <div class="page appendix-mode" id="p14">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A3</span> הגדרת התנהגות | ארכיטקטורת קבצים</div>
-        <h1 class="title">סקילים וקובצי שליטה: <span class="spec">קידוד נהלים בקבצי טקסט</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          כיצד מגדירים את גבולות הסוכן, התנהגותו ונהלי העבודה שלו באמצעות קבצי Markdown נגישים.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center;">
-          
-          <div style="background: #0A1930; color: #38BDF8; font-family: monospace; direction: ltr; padding: 20px; border-radius: 12px; font-size: 14px; line-height: 1.6;">
-keshet-agent/
-├── CLAUDE.md                 # זהות, מדיניות וכללי מותג
-├── AGENTS.md                 # הגדרת הרשאות ותפקידים
-└── skills/
-    ├── analyze-ratings/
-    │   └── SKILL.md          # נוהל ניתוח רייטינג יומי
-    └── broadcast-qa/
-        └── SKILL.md          # נוהל בדיקות שידור
-          </div>
-
-          <div class="glass-card" style="padding: 24px;">
-            <div style="font-size: 16px; font-weight: 800; margin-bottom: 12px;">אנלוגיה ישירה:</div>
-            <div style="font-size: 14px; line-height: 1.6;">
-              <strong>עובד:</strong> תיאור תפקיד + נוהל עבודה (SOP) + הרשאות<br>
-              <strong>סוכן:</strong> Prompt מערכת + קובץ SKILL.md + כלי MCP
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A3</div>
-        <div class="take-text">מתאים להדרכת מובילי תחומים המעוניינים לכתוב סקילים בעצמם ללא מתכנתים.</div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A4 (15): DETAILED TOOL CALLING & MCP
-         ========================================================================== -->
-    <div class="page appendix-mode" id="p15">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A4</span> חיבור למערכות | עומק טכנולוגי</div>
-        <h1 class="title">פרוטוקול MCP והפעלת כלים: <span class="spec">מבט מעמיק על התקן האחיד</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          הארכיטקטורה המלאה של פרוטוקול Model Context Protocol והאופן שבו הוא מונע נעילת ספקים.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div class="glass-card" style="padding: 24px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-              <h4 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">שכבת ה-MCP בארגון</h4>
-              <p style="font-size: 13px; color: var(--text-sub); line-height: 1.5;">
-                פרוטוקול פתוח המפריד בין מודל השפה לבין הכלים והמידע. המודל שולח בקשת Tool Call אחידה, ושרת ה-MCP מבצע אותה מול המערכת ומחזיר תוצאה.
-              </p>
-            </div>
-            <div style="background: #F8FAFC; padding: 14px; border-radius: 10px; font-size: 13px; line-height: 1.5;">
-              <strong>יתרונות התקן לקשת:</strong><br>
-              • החלפת מודל בקלות ללא שינוי הכלים<br>
-              • פיתוח אינטגרציה אחת המשמשת את כל הסוכנים<br>
-              • ניהול הרשאות מרוכז ברמת שרת ה-MCP
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A4</div>
-        <div class="take-text">מתאים לדיוני ארכיטקטורת אינטגרציה עם אנשי תשתיות ו-IT.</div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A5 (16): MULTI-AGENT ARCHITECTURE PATTERNS
-         ========================================================================== -->
-    <div class="page appendix-mode" id="p16">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A5</span> דפוסי ארכיטקטורה | רשתות סוכנים</div>
-        <h1 class="title">דפוסי עבודה מרובי סוכנים: <span class="spec">Sequential, Router, Evaluator, Team</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          ארבע התבניות המובילות לפירוק משימות מורכבות בין סוכנים מתמחים ושיקולי העלות והמורכבות.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
-          
-          <div class="glass-card" style="padding: 16px;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-blue); margin-bottom: 4px;">1. שרשרת (Sequential)</div>
-            <div style="font-size: 15px; font-weight: 800; margin-bottom: 6px;">A &rarr; B &rarr; C</div>
-            <div style="font-size: 12px; color: var(--text-sub);">פלט סוכן הופך לקלט הבא בתהליך שלבי קבוע.</div>
-          </div>
-
-          <div class="glass-card" style="padding: 16px;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-green); margin-bottom: 4px;">2. נתב (Router)</div>
-            <div style="font-size: 15px; font-weight: 800; margin-bottom: 6px;">בקשה &rarr; [נתב] &rarr; מומחה</div>
-            <div style="font-size: 12px; color: var(--text-sub);">סוכן ממיין מפנה למומחה המתאים (כספים/משפטי).</div>
-          </div>
-
-          <div class="glass-card" style="padding: 16px;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-orange); margin-bottom: 4px;">3. יוצר ומבקר</div>
-            <div style="font-size: 15px; font-weight: 800; margin-bottom: 6px;">[יוצר] &harr; [מבקר איכות]</div>
-            <div style="font-size: 12px; color: var(--text-sub);">סוכן יוצר תוכן וסוכן שני בודק ומתקן בסבבים.</div>
-          </div>
-
-          <div class="glass-card" style="padding: 16px;">
-            <div style="font-size: 13px; font-weight: 800; color: var(--ks-purple); margin-bottom: 4px;">4. צוות מתואם</div>
-            <div style="font-size: 15px; font-weight: 800; margin-bottom: 6px;">מנהל &rarr; [חוקר + כותב + QA]</div>
-            <div style="font-size: 12px; color: var(--text-sub);">פירוק משימה גדולה למספר סוכנים במקביל.</div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A5</div>
-        <div class="take-text">מתאים לתכנון מערכות מורכבות הדורשות התמחות מקצועית מבוזרת.</div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A6 (17): DETAILED SECURITY RISKS & GUARDRAILS
-         ========================================================================== -->
-    <div class="page dark-glow" id="p17">
-      <div class="wm on-dark">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A6</span> ניהול סיכונים | מפת אבטחה מעמיקה</div>
-        <h1 class="title">מפת הסיכונים המורחבת: <span class="spec">הגנת סייבר ומעטפת Guardrails</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          פירוט ארבעת וקטורי האיום העיקריים והמענה הטכנולוגי ברמת התשתית הארגונית.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center;">
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-            <div class="dark-card" style="border-right: 4px solid var(--ks-red);">
-              <div style="font-size: 14px; font-weight: 800; color: #FFAAAA;">1. הזרקת הנחיות (Injection)</div>
-              <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 4px;">טקסט זדוני המנסה להטות הוראות. מענה: חיטוי קלטים.</div>
-            </div>
-
-            <div class="dark-card" style="border-right: 4px solid var(--ks-orange);">
-              <div style="font-size: 14px; font-weight: 800; color: #FDBA74;">2. דליפת מידע (PII)</div>
-              <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 4px;">שליחת נתונים רגישים. מענה: מדיניות Zero Retention.</div>
-            </div>
-
-            <div class="dark-card" style="border-right: 4px solid var(--ks-yellow);">
-              <div style="font-size: 14px; font-weight: 800; color: #FDE047;">3. פעולות שגויות (Blast Radius)</div>
-              <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 4px;">עדכון שגוי במערכת. מענה: Sandboxing והרשאות קריאה.</div>
-            </div>
-
-            <div class="dark-card" style="border-right: 4px solid var(--ks-purple);">
-              <div style="font-size: 14px; font-weight: 800; color: #E9D5FF;">4. לולאות אינסופיות ועלות</div>
-              <div style="font-size: 12px; color: var(--text-light-sub); margin-top: 4px;">בזבוז משאבי טוקנים. מענה: תקרת צעדים ותקציב.</div>
-            </div>
-          </div>
-
-          <div style="display: flex; justify-content: center; align-items: center;">
-            <img src="assets/visuals/14-agent-guardrails.png" alt="Guardrails Asset" style="max-width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15);">
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A6</div>
-        <div class="take-text">מתאים לסקירות אבטחת מידע ורגולציה מול צוותי CISO והגנת הפרטיות.</div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         APPENDIX SLIDE A7 (18): OBSERVABILITY & FULL EXECUTION TRACE
-         ========================================================================== -->
-    <div class="page appendix-mode" id="p18">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> <span class="sec-badge app-deck">APPENDIX A7</span> ניטור ובקרה | יומן מעקב מלא</div>
-        <h1 class="title">יומן ביצוע מלא וניטור Traces: <span class="spec">שקיפות קוגניטיבית</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          כיצד מנטרים כל שלב, החלטה, קריאה לכלי ותיקון שגיאה בזמן אמת.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div class="glass-card" style="background: var(--navy-900); color: var(--white); padding: 24px;">
-          <div style="font-size: 15px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 6px;">
-            ניתוח עקבות ריצה מלא (<span dir="ltr">Live Execution Trace</span>)
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
-            <div style="display: flex; gap: 12px;">
-              <span style="color: var(--ks-cyan); font-family: monospace;">10:00:01</span>
-              <div>קבלת אירוע: חריגת רייטינג ברצועת הפריים</div>
-            </div>
-            <div style="display: flex; gap: 12px;">
-              <span style="color: var(--ks-cyan); font-family: monospace;">10:00:03</span>
-              <div>שליפת נתוני 30 יום מ-Snowflake <span style="color: #10B981; font-weight: 800;">✓ (180ms)</span></div>
-            </div>
-            <div style="display: flex; gap: 12px;">
-              <span style="color: var(--ks-cyan); font-family: monospace;">10:00:07</span>
-              <div>שגיאה בקריאת API &rarr; ניסיון חוזר ותיקון עצמי <span style="color: var(--ks-yellow); font-weight: 800;">↺ (Auto-Retry)</span></div>
-            </div>
-            <div style="display: flex; gap: 12px;">
-              <span style="color: var(--ks-cyan); font-family: monospace;">10:00:12</span>
-              <div>הפעלת מודל סיכום: 1,420 טוקנים נצרכו</div>
-            </div>
-            <div style="display: flex; gap: 12px;">
-              <span style="color: var(--ks-cyan); font-family: monospace;">10:00:15</span>
-              <div>שליחת התראה למנהל תורן ב-Teams <span style="color: #10B981; font-weight: 800;">✓ הושלם</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">נספח A7</div>
-        <div class="take-text">מתאים להטמעת כלי Observability ופלטפורמות ניטור סוכנים ארגוניות.</div>
       </div>
     </div>
 
   </div> <!-- End #stage -->
 
   <!-- ==========================================================================
-       INTERACTIVE GLASS NAVIGATION BAR (MAIN / APPENDIX SPLIT)
+       INTERACTIVE NAVIGATION BAR
        ========================================================================== -->
   <div class="nav-bar">
-    <button class="nav-btn" id="btnNext" title="Next Slide (Left Arrow / Space)">&larr;</button>
-    <div class="nav-section-tag tag-main" id="navTag">MAIN</div>
-    <div class="nav-counter" id="navCounter">1 / 11</div>
+    <button class="nav-btn" id="btnPrev" title="שקף קודם (חץ ימינה / מקש שמאל)">&rarr;</button>
+    <div class="nav-counter" id="navCounter">1 / 15</div>
     <div class="nav-dots" id="navDots"></div>
-    <button class="nav-btn" id="btnPrev" title="Previous Slide (Right Arrow)">&rarr;</button>
-    <button class="nav-btn" id="btnFullscreen" title="Toggle Fullscreen (F)">⛶</button>
+    <button class="nav-btn" id="btnNext" title="שקף הבא (חץ שמאלה / רווח)">&larr;</button>
+    <button class="nav-btn" id="btnFullscreen" title="מסך מלא (F)">⛶</button>
   </div>
 
   <!-- ==========================================================================
-       RESPONSIVE AUTO-SCALING & NAVIGATION ENGINE SCRIPT
+       RESPONSIVE AUTO-SCALING & NAVIGATION ENGINE (RTL)
        ========================================================================== -->
   <script>
     (function() {
-      const MAIN_SLIDES = 11;
-      const TOTAL_SLIDES = 18;
+      const TOTAL_SLIDES = 15;
       let currentSlide = 1;
 
       const stage = document.getElementById('stage');
-      const navTag = document.getElementById('navTag');
       const navCounter = document.getElementById('navCounter');
       const navDots = document.getElementById('navDots');
       const btnPrev = document.getElementById('btnPrev');
       const btnNext = document.getElementById('btnNext');
       const btnFullscreen = document.getElementById('btnFullscreen');
 
-      // Build Navigation Dots (11 Main + Separator + 7 Appendix)
+      // Build Navigation Dots
       for (let i = 1; i <= TOTAL_SLIDES; i++) {
-        if (i === MAIN_SLIDES + 1) {
-          const sep = document.createElement('div');
-          sep.className = 'dot-separator';
-          navDots.appendChild(sep);
-        }
-
         const dot = document.createElement('div');
-        dot.className = 'nav-dot' + (i > MAIN_SLIDES ? ' dot-app' : '') + (i === 1 ? ' active' : '');
-        dot.title = i <= MAIN_SLIDES ? `Main Slide ${i}` : `Appendix A${i - MAIN_SLIDES}`;
+        dot.className = 'nav-dot' + (i === 1 ? ' active' : '');
+        dot.title = `שקף ${i}`;
         dot.addEventListener('click', () => goToSlide(i));
         navDots.appendChild(dot);
       }
@@ -1731,24 +1468,16 @@ keshet-agent/
       }
 
       function updateNav() {
-        if (currentSlide <= MAIN_SLIDES) {
-          navTag.textContent = 'MAIN';
-          navTag.className = 'nav-section-tag tag-main';
-          navCounter.textContent = `${currentSlide} / ${MAIN_SLIDES}`;
-        } else {
-          const appIndex = currentSlide - MAIN_SLIDES;
-          navTag.textContent = 'APPENDIX';
-          navTag.className = 'nav-section-tag tag-appendix';
-          navCounter.textContent = `A${appIndex} (${currentSlide}/${TOTAL_SLIDES})`;
-        }
-
+        navCounter.textContent = `${currentSlide} / ${TOTAL_SLIDES}`;
         const dots = navDots.querySelectorAll('.nav-dot');
         dots.forEach((dot, idx) => {
           dot.classList.toggle('active', idx + 1 === currentSlide);
         });
       }
 
-      // Next in RTL: ArrowLeft or Space; Prev in RTL: ArrowRight
+      // In Hebrew RTL:
+      // "Next" is ArrowLeft or Space (advancing forward in RTL reading order)
+      // "Prev" is ArrowRight
       btnNext.addEventListener('click', () => goToSlide(currentSlide + 1));
       btnPrev.addEventListener('click', () => goToSlide(currentSlide - 1));
 
@@ -1772,7 +1501,7 @@ keshet-agent/
         }
       });
 
-      // Touch / Swipe
+      // Touch / Swipe Controls
       let touchStartX = 0;
       let touchStartY = 0;
 
@@ -1789,8 +1518,10 @@ keshet-agent/
 
         if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
           if (dx < 0) {
+            // Swiped Left -> Next in RTL
             goToSlide(currentSlide + 1);
           } else {
+            // Swiped Right -> Prev in RTL
             goToSlide(currentSlide - 1);
           }
         }
