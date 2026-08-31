@@ -290,7 +290,7 @@
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(226, 232, 240, 0.9);
       border-radius: var(--card-radius);
-      padding: 22px 24px;
+      padding: 20px 22px;
       box-shadow: var(--shadow-md);
       text-align: right;
     }
@@ -299,7 +299,7 @@
       background: rgba(15, 37, 72, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--card-radius);
-      padding: 22px 24px;
+      padding: 20px 22px;
       box-shadow: var(--shadow-dark);
       backdrop-filter: blur(12px);
       text-align: right;
@@ -340,7 +340,7 @@
       padding: 6px 18px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
       z-index: 1000;
-      direction: ltr; /* Keeps nav buttons in standard physical order */
+      direction: ltr; /* Physical left-to-right controls */
     }
 
     .nav-btn {
@@ -476,7 +476,7 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 02: המסר להנהלה (ארבעת עקרונות היסוד)
+         SLIDE 02: איך הגענו מאירוע שיחה לאייג’נט? (TIMELINE EVOLUTION)
          ========================================================================== -->
     <div class="page aurora-light" id="p2">
       <div class="wm">
@@ -484,43 +484,171 @@
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> יישור קו אסטרטגי | עקרונות יסוד</div>
-        <h1 class="title">המסר להנהלה: <span class="spec">ארבעה עקרונות ברורים</span></h1>
+        <div class="eyebrow"><span class="dot"></span> ציר התפתחות | שכבה אחר שכבה</div>
+        <h1 class="title">איך הגענו מאירוע שיחה לאייג’נט? <span class="spec">אבולוציית היכולות</span></h1>
         <div class="specbar"></div>
+        <p class="subtitle-text">
+          ההתפתחות לא הייתה קפיצה אחת — אלא הוספת יכולות, שכבה אחר שכבה.
+        </p>
       </div>
 
       <div class="content-area">
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+        <!-- 5-Stage Progressive Timeline (RTL: Stage 1 on right, Stage 5 on left) -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative;">
           
-          <div class="glass-card" style="border-right: 5px solid var(--ks-blue); border-left: none;">
-            <div style="font-size: 28px; margin-bottom: 6px;">🤖</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">מעבר לצ’אטבוטים</h3>
-            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
-              האייג’נט מבין יעד, מפעיל כלים ומבצע משימות בפועל במערכות הארגון.
-            </p>
+          <!-- Stage 1 (2022) -->
+          <div class="glass-card" style="border-top: 4px solid #64748B; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 12px; font-weight: 800; color: #64748B;">2022 | שלב 1</span>
+                <span style="font-size: 18px;">💬</span>
+              </div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">צ’אט בסיסי</h3>
+              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.4;">שיחה, שאלות ותשובות</p>
+            </div>
+            <div style="background: #F1F5F9; padding: 6px; border-radius: 6px; font-size: 11px; font-weight: 700; text-align: center; color: var(--navy-800);">
+              <span class="ltr-term">ChatGPT / GPT-3.5</span>
+            </div>
           </div>
 
-          <div class="glass-card" style="border-right: 5px solid var(--ks-green); border-left: none;">
-            <div style="font-size: 28px; margin-bottom: 6px;">⚙️</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">אוטומציה כשאפשר</h3>
-            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
-              תהליכים קבועים ודטרמיניסטיים עדיף לממש באוטומציה רגילה וזולה.
-            </p>
+          <!-- Stage 2 -->
+          <div class="glass-card" style="border-top: 4px solid var(--ks-cyan); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 12px; font-weight: 800; color: var(--ks-blue);">שלב 2</span>
+                <span style="font-size: 18px;">🎨</span>
+              </div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">יצירת תוכן וקוד</h3>
+              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.4;">טקסט, קוד, סיכומים ותמונות</p>
+            </div>
+            <div style="background: rgba(0,180,216,0.1); padding: 6px; border-radius: 6px; font-size: 11px; font-weight: 700; text-align: center; color: var(--navy-900);">
+              כלי עבודה יצירתי
+            </div>
           </div>
 
-          <div class="glass-card" style="border-right: 5px solid var(--ks-orange); border-left: none;">
-            <div style="font-size: 28px; margin-bottom: 6px;">🏛️</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">הערך הוא במערכת</h3>
-            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
-              היתרון נוצר מחיבור המודל למידע, לכלים, להרשאות ולתהליכי קשת.
-            </p>
+          <!-- Stage 3 -->
+          <div class="glass-card" style="border-top: 4px solid var(--ks-green); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 12px; font-weight: 800; color: #007A3D;">שלב 3</span>
+                <span style="font-size: 18px;">📚</span>
+              </div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">ידע ארגוני</h3>
+              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.4;"><span class="ltr-term">RAG</span> + אינדקסים ומסמכים</p>
+            </div>
+            <div style="background: rgba(0,166,81,0.1); padding: 6px; border-radius: 6px; font-size: 11px; font-weight: 700; text-align: center; color: #007A3D;">
+              צ'אט עם מקורות הארגון
+            </div>
           </div>
 
-          <div class="glass-card" style="border-right: 5px solid var(--ks-purple); border-left: none;">
-            <div style="font-size: 28px; margin-bottom: 6px;">🎛️</div>
-            <h3 style="font-size: 19px; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">אוטונומיה היא בחירה</h3>
-            <p style="font-size: 14px; color: var(--text-sub); line-height: 1.4;">
-              מעניקים רק את רמת העצמאות הנדרשת ומגדירים שער אישור אנושי.
+          <!-- Stage 4 -->
+          <div class="glass-card" style="border-top: 4px solid var(--ks-orange); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 12px; font-weight: 800; color: #C2410C;">שלב 4</span>
+                <span style="font-size: 18px;">⚙️</span>
+              </div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">כלים ואוטומציה</h3>
+              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.4;">מ-CI/CD לתהליכים עסקיים</p>
+            </div>
+            <div style="background: rgba(255,109,0,0.1); padding: 6px; border-radius: 6px; font-size: 11px; font-weight: 700; text-align: center; color: #C2410C;">
+              <span class="ltr-term">Power Automate / n8n</span>
+            </div>
+          </div>
+
+          <!-- Stage 5 -->
+          <div class="glass-card" style="background: var(--navy-900); color: var(--white); border-top: 4px solid var(--ks-purple); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 12px; font-weight: 800; color: var(--ks-cyan);">שלב 5 (היום)</span>
+                <span style="font-size: 18px;">🤖</span>
+              </div>
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 4px;"><span class="ltr-term">AI Agent</span></h3>
+              <p style="font-size: 12px; color: var(--text-light-sub); line-height: 1.4;">מניהול שלב — לניהול משימה</p>
+            </div>
+            <div style="background: rgba(0,180,216,0.2); padding: 6px; border-radius: 6px; font-size: 11px; font-weight: 800; text-align: center; color: var(--ks-cyan);">
+              תכנון, כלים ובקרה
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="take">
+        <div class="take-badge">מסלול ההתפתחות</div>
+        <div class="take-text">
+          <strong>מענה (Chat) ← ידע (RAG) ← פעולה (Automation) ← משימה שלמה (Agent)</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SLIDE 03: שני מסלולים שהתכנסו (CONVERGENCE DIAGRAM)
+         ========================================================================== -->
+    <div class="page aurora-light" id="p3">
+      <div class="wm">
+        <img src="assets/keshet-logo.png" alt="Keshet Logo">
+      </div>
+      
+      <div>
+        <div class="eyebrow"><span class="dot"></span> התכנסות אסטרטגית | המפגש הגדול</div>
+        <h1 class="title">שני מסלולים שהתכנסו: <span class="spec">AI פוגש אוטומציה וכלים</span></h1>
+        <div class="specbar"></div>
+        <p class="subtitle-text">
+          האבולוציה של הבינה המלאכותית והאבולוציה של האוטומציה הארגונית נפגשות כדי ליצור סוכנים.
+        </p>
+      </div>
+
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: 1fr auto 0.7fr; gap: 24px; align-items: center;">
+          
+          <!-- Parallel Tracks -->
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Track 1: AI Evolution -->
+            <div class="glass-card" style="border-right: 4px solid var(--ks-cyan); padding: 14px 18px;">
+              <div style="font-size: 13px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">🧠 מסלול 1: אבולוציית ה-AI</div>
+              <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 700; flex-wrap: wrap;">
+                <span class="chip">טקסט</span>
+                <span>←</span>
+                <span class="chip">שיחה</span>
+                <span>←</span>
+                <span class="chip">קוד ותמונות</span>
+                <span>←</span>
+                <span class="chip">ידע ארגוני (RAG)</span>
+                <span>←</span>
+                <span class="chip" style="background: rgba(0,180,216,0.15); color: var(--navy-900);">תכנון והחלטה</span>
+              </div>
+            </div>
+
+            <!-- Track 2: Automation Evolution -->
+            <div class="glass-card" style="border-right: 4px solid var(--ks-orange); padding: 14px 18px;">
+              <div style="font-size: 13px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">⚙️ מסלול 2: אבולוציית האוטומציה</div>
+              <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 700; flex-wrap: wrap;">
+                <span class="chip">סקריפטים</span>
+                <span>←</span>
+                <span class="chip">CI/CD</span>
+                <span>←</span>
+                <span class="chip">Workflows</span>
+                <span>←</span>
+                <span class="chip">מערכות עסקיות</span>
+                <span>←</span>
+                <span class="chip" style="background: rgba(255,109,0,0.15); color: #C2410C;">פעולות מונחות AI</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Convergence Arrow -->
+          <div style="font-size: 32px; color: var(--ks-blue); font-weight: 800;">←</div>
+
+          <!-- Convergence Node (AI Agent) -->
+          <div class="glass-card" style="background: var(--navy-900); color: var(--white); border: 2px solid var(--ks-cyan); text-align: center; padding: 26px 20px;">
+            <div style="font-size: 36px; margin-bottom: 6px;">🎯</div>
+            <div class="chip" style="background: rgba(0,180,216,0.2); color: var(--ks-cyan); margin-bottom: 8px;">AI + Automation + Tools</div>
+            <h3 style="font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 6px;">AI Agent</h3>
+            <p style="font-size: 12px; color: var(--text-light-sub); line-height: 1.4;">
+              הבנת שפה + גישה לכלים + הרשאות מערכת
             </p>
           </div>
 
@@ -528,17 +656,17 @@
       </div>
 
       <div class="take">
-        <div class="take-badge">עיקרון מוביל</div>
+        <div class="take-badge">תובנת ההתכנסות</div>
         <div class="take-text">
-          <strong>"המטרה: רמת האוטונומיה הנכונה לכל תהליך — לא אוטונומיה מקסימלית בכל מחיר."</strong>
+          <strong>"כשה-AI מקבל גישה לכלים ולמערכות, הוא עובר מלהסביר עבודה — לביצוע עבודה."</strong>
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         SLIDE 03: למה עכשיו? (לפני מול אחרי)
+         SLIDE 04: למה עכשיו? (לפני מול אחרי)
          ========================================================================== -->
-    <div class="page aurora-light" id="p3">
+    <div class="page aurora-light" id="p4">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -596,9 +724,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 04: סולם היכולות (5 שלבים)
+         SLIDE 05: סולם היכולות (5 שלבים)
          ========================================================================== -->
-    <div class="page aurora-light" id="p4">
+    <div class="page aurora-light" id="p5">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -669,9 +797,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 05: איך אייג'נט עובד? (THE AGENT COGNITIVE LOOP)
+         SLIDE 06: איך אייג'נט עובד? (THE AGENT COGNITIVE LOOP)
          ========================================================================== -->
-    <div class="page dark-glow" id="p5">
+    <div class="page dark-glow" id="p6">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -697,7 +825,7 @@
               <rect x="160" y="15" width="140" height="42" rx="8" fill="#173664" stroke="#00B4D8" stroke-width="1.5"/>
               <text x="230" y="41" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">1. להבין את היעד</text>
 
-              <!-- Node 2: לתכנן צעד (Top-Left in RTL reading / Right in SVG) -->
+              <!-- Node 2: לתכנן צעד (Top Right in SVG) -->
               <rect x="305" y="90" width="140" height="42" rx="8" fill="#173664" stroke="#00A651" stroke-width="1.5"/>
               <text x="375" y="116" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">2. לתכנן את הצעד</text>
 
@@ -748,15 +876,15 @@
       <div class="take">
         <div class="take-badge">עיקרון איטרטיבי</div>
         <div class="take-text">
-          <strong>"אייג’נט אינו מחזיר תשובה אחת בלבד — הוא פועל במחזוריות עד להשגת היעד או עצירה לפי מדיניות."</strong>
+          <strong>"אייג’נט פועל במחזוריות — עד להשגת היעד או עצירה לפי מדיניות."</strong>
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         SLIDE 06: אוטומציה, WORKFLOW ואייג'נט
+         SLIDE 07: אוטומציה, WORKFLOW ואייג'נט
          ========================================================================== -->
-    <div class="page aurora-light" id="p6">
+    <div class="page aurora-light" id="p7">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -818,9 +946,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 07: ערך עסקי ומקרי בוחן
+         SLIDE 08: ערך עסקי ומקרי בוחן
          ========================================================================== -->
-    <div class="page aurora-light" id="p7">
+    <div class="page aurora-light" id="p8">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -899,9 +1027,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 08: גבולות האוטונומיה
+         SLIDE 09: גבולות האוטונומיה
          ========================================================================== -->
-    <div class="page dark-glow" id="p8">
+    <div class="page dark-glow" id="p9">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -957,9 +1085,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 09: ממה אייג'נט בנוי? (ARCHITECTURE MAP)
+         SLIDE 10: ממה אייג'נט בנוי? (ARCHITECTURE MAP)
          ========================================================================== -->
-    <div class="page aurora-light" id="p9">
+    <div class="page aurora-light" id="p10">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1015,9 +1143,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 10: SKILLS, MARKDOWN ו-MCP (העובד הדיגיטלי)
+         SLIDE 11: SKILLS, MARKDOWN ו-MCP (העובד הדיגיטלי)
          ========================================================================== -->
-    <div class="page aurora-light" id="p10">
+    <div class="page aurora-light" id="p11">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1075,9 +1203,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 11: איך כמה אייג'נטים עובדים יחד? (MULTI-AGENT)
+         SLIDE 12: איך כמה אייג'נטים עובדים יחד? (MULTI-AGENT)
          ========================================================================== -->
-    <div class="page aurora-light" id="p11">
+    <div class="page aurora-light" id="p12">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1138,9 +1266,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 12: סיכונים ובקרות (6 זוגות מרכזיים)
+         SLIDE 13: סיכונים ובקרות (6 זוגות מרכזיים)
          ========================================================================== -->
-    <div class="page dark-glow" id="p12">
+    <div class="page dark-glow" id="p13">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1196,9 +1324,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 13: אבטחה, פרטיות ותאימות (5 עמודי התווך)
+         SLIDE 14: אבטחה, פרטיות ותאימות (5 עמודי התווך)
          ========================================================================== -->
-    <div class="page aurora-light" id="p13">
+    <div class="page aurora-light" id="p14">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1256,9 +1384,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 14: תפעול ושיפור מתמשך (THE CONTINUOUS OPERATIONS LOOP)
+         SLIDE 15: תפעול ושיפור מתמשך (THE CONTINUOUS OPERATIONS LOOP)
          ========================================================================== -->
-    <div class="page aurora-light" id="p14">
+    <div class="page aurora-light" id="p15">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1339,9 +1467,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 15: איך מתחילים? (7-STEP ROADMAP & STRATEGIC ANCHOR)
+         SLIDE 16: איך מתחילים? (7-STEP ROADMAP & STRATEGIC ANCHOR)
          ========================================================================== -->
-    <div class="page dark-glow" id="p15">
+    <div class="page dark-glow" id="p16">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1410,7 +1538,7 @@
        ========================================================================== -->
   <div class="nav-bar">
     <button class="nav-btn" id="btnPrev" title="שקף קודם (חץ ימינה / מקש שמאל)">&rarr;</button>
-    <div class="nav-counter" id="navCounter">1 / 15</div>
+    <div class="nav-counter" id="navCounter">1 / 16</div>
     <div class="nav-dots" id="navDots"></div>
     <button class="nav-btn" id="btnNext" title="שקף הבא (חץ שמאלה / רווח)">&larr;</button>
     <button class="nav-btn" id="btnFullscreen" title="מסך מלא (F)">⛶</button>
@@ -1421,7 +1549,7 @@
        ========================================================================== -->
   <script>
     (function() {
-      const TOTAL_SLIDES = 15;
+      const TOTAL_SLIDES = 16;
       let currentSlide = 1;
 
       const stage = document.getElementById('stage');
