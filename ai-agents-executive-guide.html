@@ -290,7 +290,7 @@
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(226, 232, 240, 0.9);
       border-radius: var(--card-radius);
-      padding: 18px 20px;
+      padding: 16px 18px;
       box-shadow: var(--shadow-md);
       text-align: right;
     }
@@ -309,10 +309,10 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.4px;
-      padding: 4px 12px;
+      letter-spacing: 0.3px;
+      padding: 3px 10px;
       border-radius: 20px;
       background: rgba(0, 87, 184, 0.08);
       color: var(--navy-700);
@@ -476,7 +476,7 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 02: האבולוציה: מצ’אט לאייג’נט (TIMELINE 5 MILESTONES)
+         SLIDE 02: האבולוציה: שני מסלולים שהתכנסו לאייג’נט (MERGED TIMELINE & CONVERGENCE)
          ========================================================================== -->
     <div class="page aurora-light" id="p2">
       <div class="wm">
@@ -484,197 +484,149 @@
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> ציר התפתחות | שכבה אחר שכבה</div>
-        <h1 class="title">האבולוציה: <span class="spec">מצ’אט לאייג’נט</span></h1>
+        <div class="eyebrow"><span class="dot"></span> ציר התפתחות והתכנסות | שילוב כוחות</div>
+        <h1 class="title">האבולוציה: <span class="spec">שני מסלולים שהתכנסו לאייג’נט</span></h1>
         <div class="specbar"></div>
         <p class="subtitle-text">
-          כל שלב הוסיף שכבת יכולת חדשה — ממענה על שאלות ועד לביצוע משימות מלאות.
+          יכולות ה-AI התפתחו במקביל לאוטומציה — והחיבור ביניהן יצר יכולת חדשה.
         </p>
       </div>
 
       <div class="content-area">
-        <!-- 5-Stage Progressive Timeline (RTL: Milestone 1 on right, Milestone 5 on left) -->
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative;">
+        <div style="display: grid; grid-template-columns: 1.25fr auto 0.72fr; gap: 18px; align-items: center;">
           
-          <!-- Milestone 1 (2022-2023) -->
-          <div class="glass-card" style="border-top: 4px solid #64748B; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 11px; font-weight: 800; color: #64748B;">2022–2023</span>
-                <span style="font-size: 18px;">💬</span>
-              </div>
-              <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">צ’אט בסיסי ופרומפטים</h3>
-              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.35; margin-bottom: 6px;">
-                שאלה נכנסת. תשובה טקסטואלית יוצאת.
-              </p>
-            </div>
-            <div>
-              <div style="background: #F1F5F9; padding: 4px 6px; border-radius: 6px; font-size: 10px; font-weight: 700; text-align: center; color: var(--navy-800); margin-bottom: 4px;">
-                <span class="ltr-term">ChatGPT / GPT-3.5</span>
-              </div>
-              <div style="font-size: 10px; color: var(--slate-500); text-align: center;">שיחה · ניסוח · תשובות</div>
-            </div>
-          </div>
-
-          <!-- Milestone 2 (2023) -->
-          <div class="glass-card" style="border-top: 4px solid var(--ks-cyan); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 11px; font-weight: 800; color: var(--ks-blue);">2023</span>
-                <span style="font-size: 18px;">🎨</span>
-              </div>
-              <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">יצירת תוכן וקוד</h3>
-              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.35; margin-bottom: 6px;">
-                הצ’אט הופך לכלי יצירה ועבודה.
-              </p>
-            </div>
-            <div>
-              <div style="background: rgba(0,180,216,0.1); padding: 4px 6px; border-radius: 6px; font-size: 10px; font-weight: 700; text-align: center; color: var(--navy-900); margin-bottom: 4px;">
-                <span class="ltr-term">GPT-4 · Copilot · DALL·E</span>
-              </div>
-              <div style="font-size: 10px; color: var(--ks-blue); text-align: center;"><span class="ltr-term">Text · Code · Image</span></div>
-            </div>
-          </div>
-
-          <!-- Milestone 3 (2024) -->
-          <div class="glass-card" style="border-top: 4px solid var(--ks-green); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 11px; font-weight: 800; color: #007A3D;">2024</span>
-                <span style="font-size: 18px;">📚</span>
-              </div>
-              <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">ידע ארגוני ו-RAG</h3>
-              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.35; margin-bottom: 6px;">
-                הצ’אט מתחבר לידע ארגוני מבוסס הרשאות.
-              </p>
-            </div>
-            <div>
-              <div style="background: rgba(0,166,81,0.1); padding: 4px 6px; border-radius: 6px; font-size: 10px; font-weight: 700; text-align: center; color: #007A3D; margin-bottom: 4px;">
-                <span class="ltr-term">SharePoint · Drive · AI Search</span>
-              </div>
-              <div style="font-size: 10px; color: #007A3D; text-align: center;">מקורות · הקשר · הרשאות</div>
-            </div>
-          </div>
-
-          <!-- Milestone 4 (2024-2025) -->
-          <div class="glass-card" style="border-top: 4px solid var(--ks-orange); display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 11px; font-weight: 800; color: #C2410C;">2024–2025</span>
-                <span style="font-size: 18px;">⚙️</span>
-              </div>
-              <h3 style="font-size: 15px; font-weight: 800; color: var(--navy-900); margin-bottom: 4px;">אוטומציה ו-Chaining</h3>
-              <p style="font-size: 12px; color: var(--text-sub); line-height: 1.35; margin-bottom: 6px;">
-                AI משתלב בתוך Workflow קבוע מראש.
-              </p>
-            </div>
-            <div>
-              <div style="background: rgba(255,109,0,0.1); padding: 4px 6px; border-radius: 6px; font-size: 10px; font-weight: 700; text-align: center; color: #C2410C; margin-bottom: 4px;">
-                <span class="ltr-term">n8n · Power Automate · Make</span>
-              </div>
-              <div style="font-size: 10px; color: #C2410C; text-align: center;">מ-CI/CD לתהליכים עסקיים</div>
-            </div>
-          </div>
-
-          <!-- Milestone 5 (2025-היום) -->
-          <div class="glass-card" style="background: var(--navy-900); color: var(--white); border-top: 4px solid var(--ks-purple); display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 25px rgba(0,180,216,0.25);">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 11px; font-weight: 800; color: var(--ks-cyan);">2025–היום</span>
-                <span style="font-size: 18px;">🤖</span>
-              </div>
-              <h3 style="font-size: 15px; font-weight: 800; color: var(--white); margin-bottom: 4px;">AI Agents עצמאיים</h3>
-              <p style="font-size: 12px; color: var(--text-light-sub); line-height: 1.35; margin-bottom: 6px;">
-                מקבלים יעד, בוחרים צעדים ופועלים עד להשגת תוצאה.
-              </p>
-            </div>
-            <div>
-              <div style="background: rgba(0,180,216,0.2); padding: 4px 6px; border-radius: 6px; font-size: 10px; font-weight: 800; text-align: center; color: var(--ks-cyan); margin-bottom: 4px;">
-                <span class="ltr-term">Operator · Claude Code · Gemini</span>
-              </div>
-              <div style="font-size: 10px; color: var(--ks-cyan); text-align: center;"><span class="ltr-term">Goal · Plan · Act · Observe</span></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="take">
-        <div class="take-badge">מסלול ההתפתחות</div>
-        <div class="take-text">
-          <strong>שיחה ← יצירה ← ידע ← פעולה ← משימה</strong>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         SLIDE 03: שני מסלולים שהתכנסו לאייג’נט (CONVERGENCE DIAGRAM)
-         ========================================================================== -->
-    <div class="page aurora-light" id="p3">
-      <div class="wm">
-        <img src="assets/keshet-logo.png" alt="Keshet Logo">
-      </div>
-      
-      <div>
-        <div class="eyebrow"><span class="dot"></span> התכנסות אסטרטגית | המפגש הגדול</div>
-        <h1 class="title">שני מסלולים שהתכנסו: <span class="spec">AI פוגש אוטומציה וכלים</span></h1>
-        <div class="specbar"></div>
-        <p class="subtitle-text">
-          ההתפתחות של הבינה המלאכותית וההתפתחות של האוטומציה הארגונית נפגשות כדי ליצור סוכנים.
-        </p>
-      </div>
-
-      <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1.1fr auto 0.75fr; gap: 24px; align-items: center;">
-          
-          <!-- Parallel Tracks -->
-          <div style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Right side: Two Parallel Tracks (AI & Automation) -->
+          <div style="display: flex; flex-direction: column; gap: 14px;">
             
-            <!-- Track 1: AI Evolution -->
-            <div class="glass-card" style="border-right: 4px solid var(--ks-cyan); padding: 14px 18px;">
-              <div style="font-size: 13px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">🧠 מסלול 1: ההתפתחות של AI</div>
-              <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 700; flex-wrap: wrap;">
-                <span class="chip">צ’אט</span>
-                <span>←</span>
-                <span class="chip">יצירת תוכן</span>
-                <span>←</span>
-                <span class="chip">ידע ארגוני</span>
-                <span>←</span>
-                <span class="chip"><span class="ltr-term">Tool Calling</span></span>
-                <span>←</span>
-                <span class="chip" style="background: rgba(0,180,216,0.15); color: var(--navy-900);">תכנון והחלטה</span>
+            <!-- Top Track: AI Evolution -->
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 14px;">🧠</span>
+                <span style="font-size: 13px; font-weight: 800; color: var(--navy-900);">מסלול 1: ההתפתחות של AI</span>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                
+                <!-- AI 1 -->
+                <div class="glass-card" style="border-top: 3px solid #64748B; padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: #64748B;">2022–2023</span>
+                    <span style="font-size: 14px;">💬</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">צ’אט בסיסי</div>
+                  <div style="font-size: 10px; font-weight: 700; color: var(--navy-700); margin-top: 2px;"><span class="ltr-term">ChatGPT</span></div>
+                </div>
+
+                <!-- AI 2 -->
+                <div class="glass-card" style="border-top: 3px solid var(--ks-cyan); padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: var(--ks-blue);">2023</span>
+                    <span style="font-size: 14px;">🎨</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">יצירת תוכן וקוד</div>
+                  <div style="font-size: 10px; font-weight: 700; color: var(--ks-blue); margin-top: 2px;"><span class="ltr-term">GPT-4 · Copilot</span></div>
+                </div>
+
+                <!-- AI 3 -->
+                <div class="glass-card" style="border-top: 3px solid var(--ks-green); padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: #007A3D;">2024</span>
+                    <span style="font-size: 14px;">📚</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">ידע ארגוני ו-RAG</div>
+                  <div style="font-size: 10px; color: #007A3D; font-weight: 600; margin-top: 2px;">מסמכים ← אינדקס ← מקורות</div>
+                </div>
+
+                <!-- AI 4 -->
+                <div class="glass-card" style="border-top: 3px solid var(--ks-purple); padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: var(--ks-purple);">2024–2025</span>
+                    <span style="font-size: 14px;">⚡</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">תכנון ושימוש בכלים</div>
+                  <div style="font-size: 10px; font-weight: 700; color: var(--ks-purple); margin-top: 2px;"><span class="ltr-term">Tool Calling</span></div>
+                </div>
+
               </div>
             </div>
 
-            <!-- Track 2: Automation Evolution -->
-            <div class="glass-card" style="border-right: 4px solid var(--ks-orange); padding: 14px 18px;">
-              <div style="font-size: 13px; font-weight: 800; color: var(--navy-900); margin-bottom: 8px;">⚙️ מסלול 2: ההתפתחות של אוטומציה</div>
-              <div style="display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 700; flex-wrap: wrap;">
-                <span class="chip">סקריפטים</span>
-                <span>←</span>
-                <span class="chip">CI/CD</span>
-                <span>←</span>
-                <span class="chip">Workflows</span>
-                <span>←</span>
-                <span class="chip">מיילים ומסמכים</span>
-                <span>←</span>
-                <span class="chip" style="background: rgba(255,109,0,0.15); color: #C2410C;">מערכות עסקיות</span>
+            <!-- Bottom Track: Automation Evolution -->
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 14px;">⚙️</span>
+                <span style="font-size: 13px; font-weight: 800; color: var(--navy-900);">מסלול 2: ההתפתחות של אוטומציה</span>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                
+                <!-- Auto 1 -->
+                <div class="glass-card" style="border-top: 3px solid #64748B; padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: #64748B;">בסיס</span>
+                    <span style="font-size: 14px;">💻</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">סקריפטים</div>
+                  <div style="font-size: 10px; color: var(--slate-500); margin-top: 2px;">שורות פקודה והרצה</div>
+                </div>
+
+                <!-- Auto 2 -->
+                <div class="glass-card" style="border-top: 3px solid var(--ks-blue); padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: var(--ks-blue);"><span class="ltr-term">CI/CD</span></span>
+                    <span style="font-size: 14px;">🔄</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">בדיקות אוטומטיות</div>
+                  <div style="font-size: 10px; color: var(--ks-blue); margin-top: 2px;">צינור פיתוח ובקרה</div>
+                </div>
+
+                <!-- Auto 3 -->
+                <div class="glass-card" style="border-top: 3px solid var(--ks-orange); padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: #C2410C;"><span class="ltr-term">Workflows</span></span>
+                    <span style="font-size: 14px;">🔀</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">תהליכים מחוברים</div>
+                  <div style="font-size: 10px; font-weight: 700; color: #C2410C; margin-top: 2px;"><span class="ltr-term">n8n · Make · Power Automate</span></div>
+                </div>
+
+                <!-- Auto 4 -->
+                <div class="glass-card" style="border-top: 3px solid #007A3D; padding: 10px 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                    <span style="font-size: 10px; font-weight: 800; color: #007A3D;">אינטגרציה</span>
+                    <span style="font-size: 14px;">🏢</span>
+                  </div>
+                  <div style="font-size: 13px; font-weight: 800; color: var(--navy-900);">מערכות עסקיות</div>
+                  <div style="font-size: 10px; color: #007A3D; margin-top: 2px;">מיילים · מסמכים · אישורים</div>
+                </div>
+
               </div>
             </div>
 
           </div>
 
           <!-- Convergence Arrow -->
-          <div style="font-size: 32px; color: var(--ks-blue); font-weight: 800;">←</div>
+          <div style="font-size: 32px; color: var(--ks-blue); font-weight: 800; text-align: center;">←</div>
 
-          <!-- Convergence Node (AI Agent) -->
-          <div class="glass-card" style="background: var(--navy-900); color: var(--white); border: 2px solid var(--ks-cyan); text-align: center; padding: 26px 20px;">
-            <div style="font-size: 36px; margin-bottom: 6px;">🎯</div>
-            <div class="chip" style="background: rgba(0,180,216,0.2); color: var(--ks-cyan); margin-bottom: 8px; font-size: 11px;">AI + Automation + Tools + Permissions</div>
-            <h3 style="font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 6px;">AI Agent</h3>
-            <p style="font-size: 12px; color: var(--text-light-sub); line-height: 1.4;">
-              הבנת שפה + גישה לכלים + הרשאות מערכת
-            </p>
+          <!-- Convergence Destination (AI Agent Card) -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: rgba(0,87,184,0.08); border: 1px dashed var(--ks-blue); border-radius: 10px; padding: 6px 10px; text-align: center; font-size: 10px; font-weight: 800; color: var(--navy-900);">
+              AI + Automation + Tools + Permissions
+            </div>
+            
+            <div class="glass-card" style="background: var(--navy-900); color: var(--white); border: 2px solid var(--ks-cyan); text-align: center; padding: 22px 16px; box-shadow: 0 12px 30px rgba(0,180,216,0.3);">
+              <div style="font-size: 32px; margin-bottom: 4px;">🎯</div>
+              <h3 style="font-size: 22px; font-weight: 900; color: var(--white); margin-bottom: 6px;">AI Agent</h3>
+              
+              <div style="display: flex; justify-content: center; align-items: center; gap: 4px; font-size: 11px; font-weight: 800; color: var(--ks-cyan); background: rgba(0,180,216,0.15); padding: 6px 8px; border-radius: 8px;">
+                <span>מטרה</span>
+                <span>←</span>
+                <span>תכנון</span>
+                <span>←</span>
+                <span>פעולה</span>
+                <span>←</span>
+                <span>בדיקה ↺</span>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -683,15 +635,15 @@
       <div class="take">
         <div class="take-badge">תובנת ההתכנסות</div>
         <div class="take-text">
-          <strong>"האייג’נט נולד כאשר יכולת החשיבה של AI התחברה ליכולת הפעולה של אוטומציה."</strong>
+          <strong>"אייג’נט נוצר כאשר יכולת החשיבה של AI מתחברת ליכולת הפעולה של אוטומציה — תחת כללים, הרשאות ובקרה."</strong>
         </div>
       </div>
     </div>
 
     <!-- ==========================================================================
-         SLIDE 04: צ’אטבוט עונה. אייג’נט מבצע. (CHATBOT VS AGENT)
+         SLIDE 03: צ’אטבוט עונה. אייג’נט מבצע. (CHATBOT VS AGENT)
          ========================================================================== -->
-    <div class="page aurora-light" id="p4">
+    <div class="page aurora-light" id="p3">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -778,9 +730,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 05: למה עכשיו? (לפני מול אחרי)
+         SLIDE 04: למה עכשיו? (לפני מול אחרי)
          ========================================================================== -->
-    <div class="page aurora-light" id="p5">
+    <div class="page aurora-light" id="p4">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -838,9 +790,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 06: סולם היכולות (5 שלבים)
+         SLIDE 05: סולם היכולות (5 שלבים)
          ========================================================================== -->
-    <div class="page aurora-light" id="p6">
+    <div class="page aurora-light" id="p5">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -911,75 +863,79 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 07: איך אייג'נט עובד? (THE AGENT COGNITIVE LOOP)
+         SLIDE 06: איך אייג'נט עובד? (DEDICATED CIRCULAR LOOP & EXAMPLE)
          ========================================================================== -->
-    <div class="page dark-glow" id="p7">
+    <div class="page dark-glow" id="p6">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
       
       <div>
-        <div class="eyebrow"><span class="dot"></span> תהליך קוגניטיבי | הלולאה החוזרת</div>
+        <div class="eyebrow"><span class="dot"></span> תהליך קוגניטיבי | הלולאה המחזורית</div>
         <h1 class="title">איך אייג’נט עובד? <span class="spec">לולאת הפעולה וההסקה</span></h1>
         <div class="specbar"></div>
       </div>
 
       <div class="content-area">
-        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 30px; align-items: center;">
+        <div style="display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 30px; align-items: center;">
           
-          <!-- Circular Loop Diagram (SVG) -->
-          <div class="dark-card" style="display: flex; justify-content: center; align-items: center; padding: 24px;">
-            <svg width="460" height="340" viewBox="0 0 460 340">
+          <!-- Large Circular Loop Diagram (SVG) -->
+          <div class="dark-card" style="display: flex; justify-content: center; align-items: center; padding: 26px;">
+            <svg width="480" height="360" viewBox="0 0 480 360">
               <!-- Center Hub -->
-              <circle cx="230" cy="170" r="55" fill="#0F2548" stroke="#00B4D8" stroke-width="3" filter="drop-shadow(0 0 10px rgba(0,180,216,0.5))"/>
-              <text x="230" y="165" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="800" text-anchor="middle">מטרה</text>
-              <text x="230" y="185" fill="#00B4D8" font-family="Heebo" font-size="14" font-weight="800" text-anchor="middle">עסקית</text>
+              <circle cx="240" cy="180" r="60" fill="#0F2548" stroke="#00B4D8" stroke-width="3" filter="drop-shadow(0 0 12px rgba(0,180,216,0.6))"/>
+              <text x="240" y="174" fill="#FFFFFF" font-family="Heebo" font-size="15" font-weight="800" text-anchor="middle">מטרה</text>
+              <text x="240" y="196" fill="#00B4D8" font-family="Heebo" font-size="15" font-weight="800" text-anchor="middle">עסקית</text>
 
-              <!-- Node 1: להבין את היעד (Top) -->
-              <rect x="160" y="15" width="140" height="42" rx="8" fill="#173664" stroke="#00B4D8" stroke-width="1.5"/>
-              <text x="230" y="41" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">1. להבין את היעד</text>
+              <!-- Node 1: תכנון (Top) -->
+              <rect x="165" y="15" width="150" height="42" rx="8" fill="#173664" stroke="#00B4D8" stroke-width="1.5"/>
+              <text x="240" y="41" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="700" text-anchor="middle">1. תכנון</text>
 
-              <!-- Node 2: לתכנן צעד (Top Right in SVG) -->
-              <rect x="305" y="90" width="140" height="42" rx="8" fill="#173664" stroke="#00A651" stroke-width="1.5"/>
-              <text x="375" y="116" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">2. לתכנן את הצעד</text>
+              <!-- Node 2: בחירת כלי (Top Right) -->
+              <rect x="325" y="95" width="145" height="42" rx="8" fill="#173664" stroke="#00A651" stroke-width="1.5"/>
+              <text x="397" y="121" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="700" text-anchor="middle">2. בחירת כלי</text>
 
-              <!-- Node 3: להפעיל כלי (Bottom Right) -->
-              <rect x="290" y="240" width="140" height="42" rx="8" fill="#173664" stroke="#FFD100" stroke-width="1.5"/>
-              <text x="360" y="266" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">3. להפעיל כלי</text>
+              <!-- Node 3: ביצוע (Bottom Right) -->
+              <rect x="310" y="250" width="145" height="42" rx="8" fill="#173664" stroke="#FFD100" stroke-width="1.5"/>
+              <text x="382" y="276" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="700" text-anchor="middle">3. ביצוע</text>
 
-              <!-- Node 4: לבחון תוצאה (Bottom Left) -->
-              <rect x="30" y="240" width="140" height="42" rx="8" fill="#173664" stroke="#FF6D00" stroke-width="1.5"/>
-              <text x="100" y="266" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">4. לבחון תוצאה</text>
+              <!-- Node 4: בדיקת תוצאה (Bottom Left) -->
+              <rect x="25" y="250" width="145" height="42" rx="8" fill="#173664" stroke="#FF6D00" stroke-width="1.5"/>
+              <text x="97" y="276" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="700" text-anchor="middle">4. בדיקת תוצאה</text>
 
-              <!-- Node 5: לתקן ולהמשיך (Top Left) -->
-              <rect x="15" y="90" width="140" height="42" rx="8" fill="#173664" stroke="#E4002B" stroke-width="1.5"/>
-              <text x="85" y="116" fill="#FFFFFF" font-family="Heebo" font-size="13" font-weight="700" text-anchor="middle">5. לתקן ולהמשיך</text>
+              <!-- Node 5: תיקון או המשך (Top Left) -->
+              <rect x="10" y="95" width="145" height="42" rx="8" fill="#173664" stroke="#E4002B" stroke-width="1.5"/>
+              <text x="82" y="121" fill="#FFFFFF" font-family="Heebo" font-size="14" font-weight="700" text-anchor="middle">5. תיקון או המשך ↺</text>
 
-              <!-- Connecting Loop Circle (Dotted) -->
-              <circle cx="230" cy="170" r="110" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6,6"/>
+              <!-- Connecting Dotted Circular Track -->
+              <circle cx="240" cy="180" r="120" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="6,6"/>
             </svg>
           </div>
 
-          <!-- Concrete Keshet Example Flow -->
-          <div class="dark-card">
-            <h3 style="font-size: 17px; font-weight: 800; color: var(--ks-cyan); margin-bottom: 12px;">
-              תרחיש בפועל: תקציר מנהלים יומי
+          <!-- Single Compact Example Box -->
+          <div class="dark-card" style="border: 1px solid rgba(0,180,216,0.3);">
+            <div class="eyebrow" style="color: var(--ks-cyan); margin-bottom: 8px;">
+              <span class="dot"></span> דוגמה מוחשית בקשת
+            </div>
+            <h3 style="font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 14px;">
+              תקציר מנהלים יומי
             </h3>
+            
             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
               <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
-                <strong>1. איסוף נתונים:</strong> שליפת טבלאות רייטינג מ-Snowflake.
+                <strong>איסוף:</strong> שליפת טבלאות רייטינג יומיות.
               </div>
               <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
-                <strong>2. ניתוח מגמות:</strong> הצלבת רצועות שידור מול שבוע קודם.
+                <strong>ניתוח:</strong> הצלבת רצועות שידור מול שבוע קודם.
               </div>
               <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
-                <strong>3. בדיקת מקורות:</strong> אימות חריגות מול לוח השידורים בפועל.
+                <strong>מקורות:</strong> אימות חריגות מול לוח השידורים.
               </div>
               <div style="background: rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 6px;">
-                <strong>4. יצירת טיוטה:</strong> ניסוח 3 תובנות מפתח.
+                <strong>טיוטה:</strong> ניסוח 3 תובנות מפתח.
               </div>
-              <div style="background: rgba(0,166,81,0.2); color: #6EE7B7; padding: 8px 12px; border-radius: 6px; font-weight: 700;">
-                <strong>5. אישור מנהל:</strong> משלוח הטיוטה למנהל לקראת ישיבת בוקר.
+              <div style="background: rgba(0,166,81,0.25); color: #6EE7B7; padding: 8px 12px; border-radius: 6px; font-weight: 800;">
+                <strong>אישור:</strong> משלוח למנהל לקראת ישיבת בוקר.
               </div>
             </div>
           </div>
@@ -996,9 +952,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 08: אוטומציה, WORKFLOW ואייג'נט
+         SLIDE 07: אוטומציה, WORKFLOW ואייג'נט
          ========================================================================== -->
-    <div class="page aurora-light" id="p8">
+    <div class="page aurora-light" id="p7">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1060,9 +1016,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 09: ערך עסקי ומקרי בוחן
+         SLIDE 08: ערך עסקי ומקרי בוחן
          ========================================================================== -->
-    <div class="page aurora-light" id="p9">
+    <div class="page aurora-light" id="p8">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1141,9 +1097,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 10: גבולות האוטונומיה
+         SLIDE 09: גבולות האוטונומיה
          ========================================================================== -->
-    <div class="page dark-glow" id="p10">
+    <div class="page dark-glow" id="p9">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1199,9 +1155,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 11: ממה אייג'נט בנוי? (ARCHITECTURE MAP)
+         SLIDE 10: ממה אייג'נט בנוי? (ARCHITECTURE MAP)
          ========================================================================== -->
-    <div class="page aurora-light" id="p11">
+    <div class="page aurora-light" id="p10">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1257,9 +1213,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 12: SKILLS, MARKDOWN ו-MCP (העובד הדיגיטלי)
+         SLIDE 11: SKILLS, MARKDOWN ו-MCP (העובד הדיגיטלי)
          ========================================================================== -->
-    <div class="page aurora-light" id="p12">
+    <div class="page aurora-light" id="p11">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1317,9 +1273,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 13: איך כמה אייג'נטים עובדים יחד? (MULTI-AGENT)
+         SLIDE 12: איך כמה אייג'נטים עובדים יחד? (MULTI-AGENT)
          ========================================================================== -->
-    <div class="page aurora-light" id="p13">
+    <div class="page aurora-light" id="p12">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1380,9 +1336,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 14: סיכונים ובקרות (6 זוגות מרכזיים)
+         SLIDE 13: סיכונים ובקרות (6 זוגות מרכזיים)
          ========================================================================== -->
-    <div class="page dark-glow" id="p14">
+    <div class="page dark-glow" id="p13">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1438,9 +1394,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 15: אבטחה, פרטיות ותאימות (5 עמודי התווך)
+         SLIDE 14: אבטחה, פרטיות ותאימות (5 עמודי התווך)
          ========================================================================== -->
-    <div class="page aurora-light" id="p15">
+    <div class="page aurora-light" id="p14">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1498,9 +1454,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 16: תפעול ושיפור מתמשך (THE CONTINUOUS OPERATIONS LOOP)
+         SLIDE 15: תפעול ושיפור מתמשך (THE CONTINUOUS OPERATIONS LOOP)
          ========================================================================== -->
-    <div class="page aurora-light" id="p16">
+    <div class="page aurora-light" id="p15">
       <div class="wm">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1581,9 +1537,9 @@
     </div>
 
     <!-- ==========================================================================
-         SLIDE 17: איך מתחילים? (7-STEP ROADMAP & STRATEGIC ANCHOR)
+         SLIDE 16: איך מתחילים? (7-STEP ROADMAP & STRATEGIC ANCHOR)
          ========================================================================== -->
-    <div class="page dark-glow" id="p17">
+    <div class="page dark-glow" id="p16">
       <div class="wm on-dark">
         <img src="assets/keshet-logo.png" alt="Keshet Logo">
       </div>
@@ -1652,7 +1608,7 @@
        ========================================================================== -->
   <div class="nav-bar">
     <button class="nav-btn" id="btnPrev" title="שקף קודם (חץ ימינה / מקש שמאל)">&rarr;</button>
-    <div class="nav-counter" id="navCounter">1 / 17</div>
+    <div class="nav-counter" id="navCounter">1 / 16</div>
     <div class="nav-dots" id="navDots"></div>
     <button class="nav-btn" id="btnNext" title="שקף הבא (חץ שמאלה / רווח)">&larr;</button>
     <button class="nav-btn" id="btnFullscreen" title="מסך מלא (F)">⛶</button>
@@ -1663,7 +1619,7 @@
        ========================================================================== -->
   <script>
     (function() {
-      const TOTAL_SLIDES = 17;
+      const TOTAL_SLIDES = 16;
       let currentSlide = 1;
 
       const stage = document.getElementById('stage');
